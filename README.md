@@ -1,7 +1,7 @@
 # SICP-exercises
 Structure and Interpretation of Computer Programs Exercises
 
-https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/
+[MIT Course as of 2005](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/)
 
 ## 1.1
 
