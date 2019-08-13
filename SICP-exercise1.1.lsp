@@ -1,5 +1,10 @@
 #lang scheme
 
+;; Exercises based on the following lecture and readings. 
+
+;; youtube.com/watch?time_continue=1688&v=2Op3QLzMgSY
+;; https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-10.html#%_sec_1.1
+
 ;;Exercise 1.1.  Below is a sequence of expressions.
 ;; What is the result printed by the interpreter in response to each expression?
 ;; Assume that the sequence is to be evaluated in the order in which it is presented.
@@ -19,6 +24,8 @@
 (+ a b (* a b))
  ;; --> 19
 
+;; 
+;; PICK UP HERE. 
 
 ;; (= a b)
 ;; (if (and (> b a) (< b (* a b)))
