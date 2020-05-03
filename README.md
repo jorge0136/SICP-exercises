@@ -1,13 +1,20 @@
 # SICP
-Structure and Interpretation of Computer Program
+*Structure and Interpretation of Computer Program*
 
-[MIT Course from 2005](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/)
-[edX Course from 2014](https://edge.edx.org/courses/uc-berkeley/cs61as-1x/SICP/about)
+* [MIT Course from 2005](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/)
+* [edX Course from 2014](https://edge.edx.org/courses/uc-berkeley/cs61as-1x/SICP/about)
 
-### Local LISP Environment Install
+## Getting Started
 
-Install [DrRacket](https://racket-lang.org/)
-Install [SICP extension]((https://docs.racket-lang.org/sicp-manual/Installation.html))
+### Local Lisp (Scheme) Install
+1. Install [DrRacket](https://racket-lang.org/)
+2. Add the [SICP extension](https://docs.racket-lang.org/sicp-manual/Installation.html) to DrRacket.
+
+### Flashcards
+
+I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) that I will be adding to over time.
+
+## Group Lecture Schedule
 
 ### Week 1
 
@@ -18,6 +25,6 @@ Install [SICP extension]((https://docs.racket-lang.org/sicp-manual/Installation.
 
 ### Week 2
 
-* Lecture: [1b] (https://www.youtube.com/watch?v=dlbMuv-jix8)
+* Lecture: [1b](https://www.youtube.com/watch?v=dlbMuv-jix8)
 * Reading: TBD
 * Exercises: TBD
