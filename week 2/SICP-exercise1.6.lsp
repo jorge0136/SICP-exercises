@@ -18,7 +18,7 @@
 ;; (new-if (good-enough? guess x)
 ;;                guess
 ;; (sqrt-iter (improve guess x) x)))
-;; What happens when Alyssa aempts to use this to compute
+;; What happens when Alyssa attempts to use this to compute
 ;; square roots? Explain
 
 ;; If the `else` needs execution we get stuck in a loop? 
@@ -45,3 +45,8 @@
   (sqrt-iter 1.0 x))
 
 (sqrt 5)
+
+;; Pick up here. 
+;; In my opnion this example can be called complete 
+;; when I have enough grasp of the tooling to see the infinite loop. 
+;; http://community.schemewiki.org/?sicp-ex-1.6
