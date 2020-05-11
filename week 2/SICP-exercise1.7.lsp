@@ -135,3 +135,5 @@
     ;; Let's use english to describe to algorithim of `improve`. 
     ;; (averaging `guess`
     ;;           `number x, whose square root we are finding` / `guess`.)
+
+;; TODO: Make more definitive statements about what well/ not well between the two methods. 
