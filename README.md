@@ -6,9 +6,16 @@
 
 ## Getting Started
 
-### Local Lisp (Scheme) Install
-1. Install [DrRacket](https://racket-lang.org/)
-2. Add the [SICP extension](https://docs.racket-lang.org/sicp-manual/Installation.html) to DrRacket.
+Before you can complete the SICP exercises you'll need to have these dependencies installed on your machine:
+
+* [DrRacket](https://racket-lang.org/) with the [SICP extension](https://docs.racket-lang.org/sicp-manual/Installation.html). This will install the dialect of lisp used in the book.
+* [Git](https://git-scm.com/)
+
+### How to Complete the Exercises
+
+1. `git clone` this repository locally.
+2. Create your own branch of this repository. `git checkout -b <branch_name>`.
+3. Complete the exercise prompts on your own branch.
 
 ### Flashcards
 
@@ -21,7 +28,7 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 * Lecture: [1a](youtube.com/watch?time_continue=1688&v=2Op3QLzMgSY)
 * Reading: pages [1](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html) - [21](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-10.html#%_sec_1.1.6) up to "Exercise 1.5"
 * Exercises: [1.1 -1.5](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-4.html#%_toc_%_sec_1.1.6)
-* Anki Flashcard Deck: [1.1](https://ankiweb.net/shared/info/1088398983)
+* Anki Flashcard Deck: [1.1](https://ankiweb.net/shared/info/1088398983) with tag `week1`.
 
 ### Week 2
 
