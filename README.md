@@ -26,5 +26,5 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 ### Week 2
 
 * Lecture: [1b](https://www.youtube.com/watch?v=dlbMuv-jix8)
-* Reading: TBD
-* Exercises: TBD
+* Reading: Pages 21 - 31 (1.17, 1.18)
+* Exercises: 1.6 - 1.8
