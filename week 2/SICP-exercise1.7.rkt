@@ -19,7 +19,7 @@
   ;; The book uses the Babylonian method ("Heron's method") of approximating square roots.
   ;; This is a quadratically convergent algorithm, which means that the number of correct digits
   ;; of the approximation roughly doubles with each iteration.
-  (define (books-improve guess x)
+  (define (improve guess x)
     (average guess (/ x guess)))
 
   (define (books-good-enough? guess x)
@@ -30,7 +30,8 @@
   (define (books-sqrt-iter guess x)
     (if (books-good-enough? guess x)
             guess
-            (books-sqrt-iter (books-improve guess x) x)))
+            (books-sqrt-iter (improve guess x)
+                              x)))
 
   (define (books-sqrt x)
     (books-sqrt-iter 1.0 x))
@@ -43,56 +44,26 @@
     ;; of the approximation roughly doubles with each iteration. For small numbers we will stop the
     ;; iterations only a few steps in, which will impact the accuracy in a signficant way.
 
-  ;;   ;; Let's try out the book's original implementation on some small and large numbers.
-    (trace books-good-enough?)
-    ;; (books-sqrt 5)
-  ;;   (books-sqrt .5)
-    (books-sqrt .05)
-  ;;   (books-sqrt .005)
-  ;;   ;; --> 0.0722471690979458. Actual per google is 0.07071067811
-  ;;   (books-sqrt .0005)
-  ;;   ;; --> 0.03640532954316447. Actual per google is 0.02236067977
+  ;; Very large numbers:
 
-  ;; ;; Very large numbers:
-
-  ;;   ;; For very large numbers, the limited precision provided by a division is insufficient to ever
-  ;;   ;; reach our threshold value 0.001. That means that our algorthim will fall into a never ending
-  ;;   ;; loop attempting to reach a level of precision that the computer will never provide.
-
-  ;;   ;; Large numbers examples.
-  ;;   (books-sqrt 500)
-  ;;   (books-sqrt 5000)
-  ;;   (books-sqrt 50000)
-  ;;   (books-sqrt 500000)
-  ;;   (books-sqrt 5000000)
-  ;;   (books-sqrt 50000000)
-  ;;   (books-sqrt 500000000)
-  ;;   (books-sqrt 5000000000)
-  ;;   (books-sqrt 50000000000)
-  ;;   (books-sqrt 500000000000)
-  ;;   (books-sqrt 500000000000000)
-  ;;   (books-sqrt 50000000000000000000000000000)
-  ;;   (books-sqrt 500000000000000000000000000000000000000000000000000000000)
-  ;;   (books-sqrt 50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
+    ;; For very large numbers, the limited precision provided by a division is insufficient to ever
+    ;; reach our threshold value 0.001. That means that our algorthim will fall into a never ending
+    ;; loop attempting to reach a level of precision that the computer will never provide.....
+    ;; Except I can't get it to do that. I got it to happen once but I haven't been able to get it to do it again.
 
   ;; ***********************************************************************************************
 
   ;; An alternative strategy for implementing good-enough? is to watch how guess changes from one
   ;; iteration to the next and to stop when the change is a very small fraction of the guess.
 
-  (define (improve guess x)
-    (average guess (/ x guess)))
-
   (define (improved-guess-delta old_guess x)
     (- (improve old_guess x)
         old_guess))
 
-  ;; Watch how guess change from one iteration to the next and stop when the change is a very small
-  ;; fraction of the guess.
   (define (good-enough? guess x)
     (<
        (abs (improved-guess-delta guess x))
-       (* guess 0.001)))
+       (* guess 0.0001)))
 
   (define (sqrt-iter guess x)
     (if (good-enough? guess x)
@@ -102,41 +73,13 @@
   (define (sqrt x)
     (sqrt-iter 1.0 x))
 
-  ;; (sqrt 500)
-
-;; Very small numbers:
-
-  ;; (sqrt 5)
-  ;; (sqrt .5)
-  ;; (sqrt .05)
-  ;; (sqrt .005)
-  ;; ;; --> 0.0722471690979458. Actual per google is 0.07071067811
-  ;; (sqrt .0005)
-  ;; ;; --> 0.03640532954316447. Actual per google is 0.02236067977
-
-;; Large numbers examples.
-  ;; (sqrt 500)
-  ;; (sqrt 5000)
-  ;; (sqrt 50000)
-  ;; (sqrt 500000)
-  ;; (sqrt 5000000)
-  ;; (sqrt 50000000)
-  ;; (sqrt 500000000)
-  ;; (sqrt 5000000000)
-  ;; (sqrt 50000000000)
-  ;; (sqrt 500000000000)
-  ;; (sqrt 5000000000000)
-  ;; (sqrt 500000000000000)
-  ;; --> 22360679.774997897 Actual per google is 22360679.775
-  ;; (sqrt 50000000000000000000000000000)
-  ;; --> 223606_797749978.97 Actual per google is 2.236068e+14.
-  ;; (sqrt 500000000000000000000000000000000000000000000000000000000)
-  ;; (sqrt 50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
-
   ;; ;; MY NOTES:
     ;; Let's use english to describe to algorithim of `improve`.
     ;; (averaging `guess`
     ;;           `number x, whose square root we are finding` / `guess`.)
+
+(trace good-enough?)
+(trace books-good-enough?)
 
 ;; Provide the square root functions for testing.
 (provide sqrt
