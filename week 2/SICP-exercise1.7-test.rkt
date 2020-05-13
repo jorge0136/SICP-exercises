@@ -47,15 +47,14 @@
 
   ;; ;; Very Large Numbers:
     (check-= (sqrt 500.0) 22.360679775 three-decimal-delta "L1:sqrt of `500`.")
-  ;;   (check-= (sqrt 5000.0) 70.7106781187 seven-decimal-delta "L2: sqrt of `5000`.")
-  ;;   (check-= (sqrt 50000.0) 223.60679775 seven-decimal-delta "L3: sqrt of `50000`.")
-  ;;   (check-= (sqrt 500000.0) 707.106781187 six-decimal-delta "L4: sqrt of `500000`.")
-  ;;   (check-= (sqrt 5000000.0) 2236.0679775 six-decimal-delta "L5: sqrt of `5000000`.")
-  ;;   (check-= (sqrt 50000000.0) 7071.06781187 six-decimal-delta "L6: sqrt of `50000000`.")
-  ;;   (check-= (sqrt 500000000000000000.0) 707106781.187 three-decimal-delta "L6: sqrt of `500000000000000000`.")
+    (check-= (sqrt 5000.0) 70.7106781187 three-decimal-delta "L2: sqrt of `5000`.")
+    (check-= (sqrt 50000.0) 223.60679775 three-decimal-delta "L3: sqrt of `50000`.")
+    (check-= (sqrt 500000.0) 707.106781187 one-decimal-delta "L4: sqrt of `500000`.") ;; Why is this one more inaccurate?
+    (check-= (sqrt 5000000.0) 2236.0679775 two-decimal-delta "L5: sqrt of `5000000`.")
+    (check-= (sqrt 50000000.0) 7071.06781187 two-decimal-delta "L6: sqrt of `50000000`.")
 
     ;; These square roots do finish calculating but they are wildly inaccurate.
-
+    ;; (check-= (sqrt 500000000000000000.0) 707106781.187 10.0 "L6: sqrt of `500000000000000000`.")
     ;; (check-= (sqrt 500000000000000000000000000000000000000000000000000000000.0)
     ;;           2.236068e+28 100.0 "L7: sqrt of `500000000000000000000000000000000000000000000000000000000`.")
     ;; (check-= (sqrt 50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0)
