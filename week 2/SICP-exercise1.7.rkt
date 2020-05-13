@@ -138,4 +138,6 @@
     ;; (averaging `guess`
     ;;           `number x, whose square root we are finding` / `guess`.)
 
-;; TODO: Make more definitive statements about what well/ not well between the two methods.
+;; Provide the square root functions for testing.
+(provide sqrt
+         books-sqrt)
