@@ -35,3 +35,9 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 * Lecture: [1b](https://www.youtube.com/watch?v=dlbMuv-jix8)
 * Reading: Pages 21 - 31 (1.17, 1.18)
 * Exercises: 1.6 - 1.8
+
+### Week 3
+
+* Lecture: [1b](https://www.youtube.com/watch?v=dlbMuv-jix8)
+* Reading: 1.2.1
+* Exercises: 1.9, 1.10
