@@ -155,13 +155,8 @@ Consider the following procedures, where A is the procedure defined above:
 
 (define (f n) (A 0 n))
 
-  (cond ((= n 0) 0)
-        ((= 0 0) (* 2 y))
-        ((= n 1) 2)
-        (else (A (- 0 1)
-                 (A 0 (-n 1))))))
-= (* 2 n)
-= 2n
+; when the first parameter is 0, (f n) = 2n
+
 
 
 (define (g n) (A 1 n))
