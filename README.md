@@ -41,3 +41,10 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 * Lecture: [1b](https://www.youtube.com/watch?v=dlbMuv-jix8)
 * Reading: 1.2.1
 * Exercises: 1.9, 1.10
+
+
+### Week 4
+
+* Lecture: [1b](https://www.youtube.com/watch?v=dlbMuv-jix8)
+* Reading: 1.2.2
+* Exercises: 1.11, 1.12, 1.13
