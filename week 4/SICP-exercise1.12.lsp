@@ -8,3 +8,10 @@
 
 ;; The numbers at the edge of the triangle are all 1, and each number inside the triangle is the sum of the two numbers above it.
 ;; Write a procedure that computes elements of Pascal's triangle by means of a recursive process.
+
+(define (pascal row column)
+  (cond ((= row 0) 1)
+        ((= column 0) 1)
+        ((= row column) 1)
+  (+ (pascal (- row 1)(- column 1))
+     (pascal (- row 1) column))))
