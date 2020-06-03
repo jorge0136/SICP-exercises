@@ -10,7 +10,9 @@
 ;; Write a procedure that computes elements of Pascal's triangle by means of a recursive process.
 
 (define (pascals-triangulator depth)
-         ;; TODO: Pick up here and finish formatting. Need to flip the triangle too. 
+         ;; TODO: Pick up here and finish formatting. Need to flip the triangle too.
+         ;; Try `width` instead of min-width? 
+         ;; https://docs.racket-lang.org/reference/strings.html
          (display (~a (expt 11 depth) #:min-width (+ depth 4) #:align 'center #:left-pad-string " " #:right-pad-string " "))
          (display "\n")
          (if (> depth 1)
