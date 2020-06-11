@@ -12,8 +12,8 @@
   ;; If `a` is less than 0, we should count that as 0 ways to make change.
   ;; If `n` is 0, we should count that as 0 ways to make change.
 
-  ;; Resaid with the variables of the method subsititued. 
-  ;; The number of ways to change `amount` using `kind-of-coins`. 
+  ;; Resaid with the variables of the method subsititued.
+  ;; The number of ways to change `amount` using `kind-of-coins`.
   ;; the number of ways to change `amount` using all but the first `kinds-of-coins`, plus
   ;; the number of ways to change amount `amount` - `d` using all `n` kinds of coins,
   ;; where `d` is the denomination of the first kind of coin.
@@ -47,12 +47,11 @@
     ;; Since this is a recursive process, the orders of growth of the space will be proportional
     ;; to the depth of the calls.
 
-    ;; It is easy to see that the longest series of calls will be when doing the change of 
+    ;; It is easy to see that the longest series of calls will be when doing the change of
     ;; the amount n using only pennies. The order of growth of space for cc will be Θ(n)
 
-;; Order of growth of space 
-  ;; This is recursive meaning it will generaly grow at Θ(n)^2? 
+;; Order of growth of time
+  ;; This is recursive meaning it will generaly grow at Θ(n)^2?
 
-
-  ;; Graphviz code: 
+  ;; Graphviz code:
     ;; http://telegraphics.com.au/svn/puzzles/trunk/sicp/count-change-tree.scm
