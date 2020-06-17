@@ -13,6 +13,13 @@
 
   ; Is there an invariant quantity in this case?
   (define (faster*-iter a b product)
+    (display a)
+    (display "\n")
+    (display b)
+    (display "\n")
+    (display product)
+    (display "\n")
+    (display "\n")
       (cond ((= b 0) product)
           ((even? b) (faster*-iter (double a) (halve b) product))
           (else (faster*-iter  a (- b 1)  (+ a product) ))))
@@ -23,12 +30,6 @@
   (eq? 16 (faster* 4 4))
   (eq? 24 (faster* 4 6))
   (eq? 8100 (faster* 450 18))
+  (eq? 20000 (faster* 20 1000))
 
   ;; Useful debug printing block to show internal state of variables between recursive calls. 
-  ;; (display a)
-  ;; (display "\n")
-  ;; (display b)
-  ;; (display "\n")
-  ;; (display product)
-  ;; (display "\n")
-  ;; (display "\n")
