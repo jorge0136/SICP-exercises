@@ -22,6 +22,7 @@
   ; This allows us to do some arbitrary transformation multiple times.
   ; Note that linear tranforms are not commutative, order matters.
 
+  ; An excellent primer on what is happening here: http://www.youtube.com/watch?v=kYB8IZa5AuE&t=5m35s
   ; The original transformation (T) started with the vector (1, 0).
   ; T(a, b) = ((a + b), (a))
   ; We can express this linear transformation with the matrix:
