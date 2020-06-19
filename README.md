@@ -53,3 +53,13 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 
 * Reading: 1.2.3
 * Problems: 1.14, 1.15
+
+### Week 6
+
+* Reading: 1.2.4
+* Problems: 1.16 - 1.19
+
+### Week 5
+
+* Reading: 1.2.5
+* Problems: 1.20 - 1.24
