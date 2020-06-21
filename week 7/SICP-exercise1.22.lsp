@@ -45,14 +45,18 @@
 ;; and 1,000,000 support the Θ(n⎯⎯√) prediction? Is your result compatible with the notion that
 ;; programs on your machine run in time proportional to the number of steps required for the computation?
 
-(define (search-for-odd-primes n)
-  (search-for-odd-prime-iter n 1)
+(define (search-for-odd-primes a b)
+  (search-for-odd-prime-iter b a)
+  (newline)
 )
 
 (define (search-for-odd-prime-iter n current-possible-prime)
   (timed-prime-test current-possible-prime)
-  (cond ((even? current-possible-prime) (search-for-odd-prime-iter (+ 1 current-possible-prime)))
+  (cond ((even? current-possible-prime) (search-for-odd-prime-iter n (+ 1 current-possible-prime)))
         ((>= current-possible-prime n) current-possible-prime)
         ((< current-possible-prime n) (search-for-odd-prime-iter n (+ 2 current-possible-prime)))))
 
-(search-for-odd-primes 5)
+;(search-for-odd-primes 1000 1020)
+;(search-for-odd-primes 10000 10050)
+;(search-for-odd-primes 100000 100050)
+(search-for-odd-primes 1000000 1000050)
