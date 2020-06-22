@@ -21,14 +21,16 @@
   (= n (smallest-divisor n)))
 
 (define (timed-prime-test n)
- (newline)
- (display n)
+ 
  (start-prime-test n (runtime)))
 (define (start-prime-test n start-time)
  (if (prime? n)
      (report-prime (- (runtime)
-                      start-time))))
-(define (report-prime elapsed-time)
+                      start-time) 
+                    n)))
+(define (report-prime elapsed-time n)
+  (newline)
+  (display n)
   (display " *** ")
   (display elapsed-time))
 
@@ -45,6 +47,7 @@
 ;; and 1,000,000 support the Θ(n⎯⎯√) prediction? Is your result compatible with the notion that
 ;; programs on your machine run in time proportional to the number of steps required for the computation?
 
+; Note that square-root(10) = 3.16227766017
 (define (search-for-odd-primes a b)
   (search-for-odd-prime-iter b a)
   (newline)
@@ -56,7 +59,21 @@
         ((>= current-possible-prime n) current-possible-prime)
         ((< current-possible-prime n) (search-for-odd-prime-iter n (+ 2 current-possible-prime)))))
 
-;(search-for-odd-primes 1000 1020)
-;(search-for-odd-primes 10000 10050)
-;(search-for-odd-primes 100000 100050)
+(display "The Primes between 1,000 and 1,020")
+(search-for-odd-primes 1000 1020)
+(newline)
+(display "The Primes between 10,000 and 10,050")
+(search-for-odd-primes 10000 10050)
+(newline)
+(display "The Primes between 100,000 and 100,050")
+(search-for-odd-primes 100000 100050)
+(newline)
+(display "The Primes between 1,000,000 and 1,000,050")
 (search-for-odd-primes 1000000 1000050)
+(newline)
+(display "We expect the runtime of this algorithim to grow at about square-root(n)")
+(newline)
+(display "n in this case is the magnitude of the numbers, not the range. AKA 1,000 vs. 10,000 is a 10x increase")
+(display "Note that square-root(10) = 3.16227766017")
+(newline)
+(display "This growth in runtime between the groups is approximately ~3*")
