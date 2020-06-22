@@ -76,4 +76,5 @@
 (display "n in this case is the magnitude of the numbers, not the range. AKA 1,000 vs. 10,000 is a 10x increase")
 (display "Note that square-root(10) = 3.16227766017")
 (newline)
-(display "This growth in runtime between the groups is approximately ~3*")
+(display "This growth in runtime between the groups is ~3* for numbers 10,00 or larger.")
+(display "This growth in runtime between 1000 and 10,000 is ~2*.")
