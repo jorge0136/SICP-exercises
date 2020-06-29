@@ -1,0 +1,54 @@
+#lang racket
+(require racket/trace)
+
+; Exercise 1.27: Demonstrate that the Carmichael numbers listed in Footnote 47 really do fool the
+; Fermat test. That is, write a procedure that takes an integer n and tests whether a^n is congruent
+; to a modulo n for every a<n, and try your procedure on the given Carmichael numbers.
+
+; 561, 1105, 1729, 2465, 2821, and 6601
+
+
+(define (fermat-prime? n times)
+  (cond ((= times 0) #t)
+        ((fermat-test n)
+         (fermat-prime? n (- times 1)))
+       (else #f)))
+  
+
+(define (fermat-test n)
+  (define (try-it a)
+    (cond ((= (expmod a n n)(remainder a n)) #t)
+          (else #f)))
+  (try-it (+ 1 (random (- n 1)))))
+
+
+(define (square x)
+  (* x x))
+
+(define (expmod base exp m)
+  (cond ((= exp 0) 1)
+        ((even? exp)
+         (remainder
+          (square (expmod base (/ exp 2) m))
+          m))
+        (else
+         (remainder
+          (* base (expmod base (- exp 1) m))
+          m))))
+
+
+(fermat-prime? 561 10)
+(fermat-prime? 1105 10)
+(fermat-prime? 1729 10)
+(fermat-prime? 2465 10)
+(fermat-prime? 2821 10)
+(fermat-prime? 6601 10)
+
+; sanity check
+(fermat-prime? 6 10)
+(fermat-prime? 9 10)
+(fermat-prime? 650 10)
+
+
+; returns true for all Carmichael numbers despite these not being prime
+
