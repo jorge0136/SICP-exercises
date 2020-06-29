@@ -59,7 +59,11 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 * Reading: 1.2.4
 * Problems: 1.16 - 1.19
 
-### Week 5
+### Week 7
 
 * Reading: 1.2.5
 * Problems: 1.20 - 1.24
+
+### Week 8
+
+* Problems: 1.25 - 1.28
