@@ -73,10 +73,13 @@
             (print-false-result n a))))
 
 (congruence-modulo-tester 3)
-(congruence-modulo-tester 4)
+(congruence-modulo-tester 4) ;; Show that some numbers do return false.
 (congruence-modulo-tester 561)
 (congruence-modulo-tester 1105)
 (congruence-modulo-tester 1729)
 (congruence-modulo-tester 2465)
 (congruence-modulo-tester 2821)
 (congruence-modulo-tester 6601)
+
+;; All the of the Carmichael numbers show as `true` for every combination.
+;; Our fermat test would have been fooled by these numbers.
