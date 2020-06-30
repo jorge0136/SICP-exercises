@@ -19,34 +19,18 @@
 
   (define (congruence-modulo-tester n)
     (display n)
-    (newline)
-    (newline)
     (congruence-modulo-tester-iter n 1)
-    (newline)
-  )
+    (newline))
 
-  (define (print-true-result n a)
-    (display "a: ")
-    (display a)
-    (display " True " )
-    (display n)
-    (display "^")
-    (display a)
-    (display " ≡ ")
-    (display a)
-    (display " (mod ")
-    (display n)
-    (display ")")
-    (newline)
-    (display (expmod a n n))
-    (display "=")
-    (display (remainder a n))
-    (newline)
-    ;; Better way to call this?
-    (congruence-modulo-tester-iter n (+ a 1)))
+  (define (congruence-modulo-tester-iter n a)
+    (cond ((= n a) (display " is prime per the fermat test"))
+          ((= (expmod a n n) (remainder a n))
+            (congruence-modulo-tester-iter n (+ a 1)))
+          (else
+            (print-false-result n a))))
 
   (define (print-false-result n a)
-    (display "a: ")
+    (display " a: ")
     (display a)
     (display " False ")
     (display n)
@@ -62,15 +46,7 @@
     (display "!=")
     (display (remainder a n))
     (newline)
-    ;; Better way to call this?
-    (congruence-modulo-tester-iter n (+ a 1)))
-
-  (define (congruence-modulo-tester-iter n a)
-    (cond ((= n a) 1)
-          ((= (expmod a n n) (remainder a n))
-            (print-true-result n a))
-          (else
-            (print-false-result n a))))
+    )
 
 (congruence-modulo-tester 3)
 (congruence-modulo-tester 4) ;; Show that some numbers do return false.
