@@ -30,6 +30,8 @@
 
 (define ( square x ) (* x x))
 
+;; TODO: Could I reuse some of my solution from 1.27?
+
 ;; I referenced the following for assitance on this problem: https://codology.net/post/sicp-solution-exercise-1-28/
 ;; return 0 unless (a^2 == (1 % n) && a != 1 && a != (n -1))
 (define (nontrivial-squarer a n)
@@ -72,26 +74,23 @@
 (define (report-true-prime elapsed-time n)
   (newline)
   (display n)
-  (display " *** ")
+  (display " Prime")
+  (display " *** Runtime: ")
   (display elapsed-time))
 
 (define (report-false-prime elapsed-time n)
   (newline)
   (display n)
-  (display " false")
-  (display " *** ")
+  (display " Not prime!")
+  (display " *** Runtime: ")
   (display elapsed-time))
 
-;; (congruence-modulo-tester 3)
-;; (congruence-modulo-tester 4) ;; Show that some numbers do return false.
-;; (congruence-modulo-tester 561)
-;; (congruence-modulo-tester 1105)
-;; (congruence-modulo-tester 1729)
-;; (congruence-modulo-tester 2465)
-;; (congruence-modulo-tester 2821)
-;; (congruence-modulo-tester 6601)
-(timed-prime-test 3)
-(timed-prime-test 5)
+(timed-prime-test 3) ;; True prime
+(timed-prime-test 5) ;; True prime
 (timed-prime-test 561)
-(timed-prime-test 1100)
+(timed-prime-test 1039) ;; True prime
 (timed-prime-test 1105)
+(timed-prime-test 1729)
+(timed-prime-test 2465)
+(timed-prime-test 2821)
+(timed-prime-test 6601)
