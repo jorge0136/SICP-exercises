@@ -67,3 +67,9 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 ### Week 8
 
 * Problems: 1.25 - 1.28
+
+### Week 9
+
+* Lecture [2a](https://www.youtube.com/watch?v=eJeMOEiHv8c). The relavent parts, no need to watch the entire lecture.
+* Reading: 1.3 -1.3.1
+* Problems 1.29 - 1.30
