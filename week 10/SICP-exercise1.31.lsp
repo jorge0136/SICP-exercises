@@ -7,5 +7,36 @@
 
 ;;  π/4 = 2⋅4⋅4⋅6⋅6⋅8⋅⋯ / 3⋅3⋅5⋅5⋅7⋅7⋅⋯
 
+#lang racket
+(require racket/trace)
+
+
+(define (product term a next b)
+  (if (> a b)
+      1
+      (* (term a)
+         (product term (next a) next b))))
+
+ (define (factorial a)
+  (define (next a) (+ a 1))
+  (define (term a) a)
+  (product term 1 next a))
+
+(factorial 5)
+
+(define (square x) (* x x))
+
+
+(define (wallis n)
+  (define (term x)
+    (/ (* 4 (square x)) (- (* 4 (square x)) 1)))
+  (define (inc x) (+ x 1))
+  (* 2.0 (product term 1 inc n)))
+
+(wallis 10)
+    
+
+    
+
 ;; If your product procedure generates a recursive process, write one that generates an iterative
 ;; process. If it generates an iterative process, write one that generates a recursive process.
