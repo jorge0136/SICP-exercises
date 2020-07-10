@@ -27,16 +27,38 @@
 (define (square x) (* x x))
 
 
-(define (wallis n)
+(define (wallis-pi n)
   (define (term x)
     (/ (* 4 (square x)) (- (* 4 (square x)) 1)))
   (define (inc x) (+ x 1))
   (* 2.0 (product term 1 inc n)))
 
-(wallis 10)
+(wallis-pi 10)
     
 
     
 
 ;; If your product procedure generates a recursive process, write one that generates an iterative
 ;; process. If it generates an iterative process, write one that generates a recursive process.
+
+(define (product-iterative term a next b)
+  (define (iter a result)
+    (if (> a b)
+        result
+        (iter (next a) (* (term a) result))))
+  (iter a 1))
+
+
+ (define (factorial-iterative a)
+  (define (next a) (+ a 1))
+  (define (term a) a)
+  (product-iterative term 1 next a))
+
+(factorial-iterative 5)
+
+
+
+
+
+
+
