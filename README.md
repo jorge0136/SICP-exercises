@@ -73,3 +73,10 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 * Lecture: [2a Part 1](https://www.youtube.com/watch?v=eJeMOEiHv8c) Up to about the 23 minute mark.
 * Reading: [1.3 -1.3.1](http://sarabander.github.io/sicp/html/1_002e3.xhtml#g_t1_002e3)
 * Problems: 1.29 - 1.30
+
+
+### Week 10
+
+* Lecture:[2a Part 1](https://www.youtube.com/watch?v=eJeMOEiHv8c) Up to about the 40ish minute mark.
+* Reading: [1.32](http://sarabander.github.io/sicp/html/1_002e3.xhtml#g_t1_002e3_002e2)
+* Problems: 1.31 - 1.34
