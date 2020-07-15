@@ -25,13 +25,11 @@
 (define (sum x y)
     (+ x y))
 
-;; i'm not sure why i'm getting an unbound identifier response to this problem
-
 (accumulate sum 0 square 1 inc 5)
 
 
-   
-  
+
+
 
 ;; 2. If your accumulate procedure generates a recursive process, write one that generates an
 ;; iterative process. If it generates an iterative process, write one that generates a recursive
