@@ -1,4 +1,5 @@
-#lang sicp
+#lang racket
+(require racket/trace)
 ;; Exercise 1.33: You can obtain an even more general version of accumulate (Exercise 1.32) by
 ;; introducing the notion of a filter on the terms to be combined. That is, combine only those terms
 ;; derived from values in the range that satisfy a specified condition. The resulting
@@ -15,36 +16,37 @@
       (if (filter a)      
             (combiner (term a)
                       (filtered-accumulate filter combiner null-value term (next a) next b))
-            (filtered-accumulate filter combiner null-value term a next b))))
-
-
-(define (find-divisor n test-divisor)
-  (cond ((> (square test-divisor) n)
-         n)
-        ((divides? test-divisor n)
-         test-divisor)
-        (else (find-divisor
-               n
-               (+ test-divisor 1)))))
-
-
-(define (square x)
-  (* x x))
-
-(define (divides? a b)
-  (= (remainder b a) 0))
+            (filtered-accumulate filter combiner null-value term (next a) next b))))
 
 (define (smallest-divisor n)
   (find-divisor n 2))
 
-(define (sum-of-prime-squares a)
+(define (find-divisor n test-divisor)
+  (cond ((> (square test-divisor) n) 
+         n)
+        ((divides? test-divisor n) 
+         test-divisor)
+        (else (find-divisor 
+               n 
+               (+ test-divisor 1)))))
+
+(define (divides? a b)
+  (= (remainder b a) 0))
+
+(define (square x)
+  (* x x))
+
+(define (prime? n)
+  (= n (smallest-divisor n)))
+(trace prime?)
+
+
+(define (sum-of-prime-squares prime-number)
    (define (sum x y)
-    (+ x y)
-   (define (prime? x)
-     (= n (smallest-divisor n)))
+    (+ x y))
    (define (inc a)
      (+ a 1))
-  (filter-accumulate prime sum 0 square 1 inc a)))
+  (filtered-accumulate prime? sum 0 square 1 inc prime-number))
 
 (sum-of-prime-squares 11)
 
