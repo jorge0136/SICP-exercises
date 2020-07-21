@@ -80,3 +80,9 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 * Lecture:[2a Part 1](https://www.youtube.com/watch?v=eJeMOEiHv8c) Up to about the 40ish minute mark.
 * Reading: [1.32](http://sarabander.github.io/sicp/html/1_002e3.xhtml#g_t1_002e3_002e2)
 * Problems: 1.31 - 1.34
+
+
+### Week 11
+
+* Reading: [1.33](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-4.html#%_toc_%_sec_1.3.3)
+* Problems: 1.35 - 1.39
