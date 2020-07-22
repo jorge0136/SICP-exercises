@@ -5,3 +5,7 @@
 ;; Write a program that uses your cont-frac procedure from exercise 1.37 to approximate e, based on Euler's expansion.
 
 ;;  Really asking to create the series 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, ....
+
+;; iterate, 3, 5th, 8th numbers are + 2 what was there before.
+
+;; 

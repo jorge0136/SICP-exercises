@@ -1,4 +1,5 @@
-#lang sicp
+#lang racket
+(require racket/trace)
 ;; Exercise 1.37.  a. An infinite continued fraction is an expression of the form
 
 ;; f = n1 / d1 + n2/ d2 + n3 / d3 + n4 / d4 + n5
@@ -16,17 +17,19 @@
 
 ;; b. If your cont-frac procedure generates a recursive process, write one that generates an iterative process. If it generates an iterative process, write one that generates a recursive process.
 
-;; (n1 / d1) + (n2/ d2) + (n1 / d1)
+;; (n1) / (d1 + n2/ d2) + (n1 / d1)
 
 ;;kn is the number of times we loop.
 ;; d is a procedure to apply.
 ;; n is a procedure to apply.
 (define (cont-frac n d k)
-  ((cond ((= k 0) 0)
-  (+ (/ (n k) (d k))
-     ((cont-frac n d (- k 1)))))))
+  (cond ((= k 1) (/ (n k) (d k)))
+  (/ (n k)
+     (+ (d k)
+        (cont-frac n d (- k 1))))))
 
- (cont-frac (lambda (i) 1.0)
-            (lambda (i) 1.0)
-            100)
-;;  TODO: Come back to this one. 
+(trace cont-frac)
+
+(cont-frac (lambda (i) 1.0)
+           (lambda (i) 1.0)
+           5)
