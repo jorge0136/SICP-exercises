@@ -9,16 +9,14 @@
 
 
 
-;; index = 0 1 2 3 4 5 6 7 8 9 10
+;; index = 1 2 3 4 5 6 7 8 9 10 11
 ;; value = 1 2 1 1 4 1 1 6 1 1 8
 
 (define (d i)
-   (if (not (= 0 (remainder (+ i 1) 3)))
-       1
+   (cond
+     ((not (= 0 (remainder (+ i 1) 3))) 1) 
        (* 2 (/ (+ i 1) 3))))
-(trace d)
 
-(d 8)
 
 (define (cont-frac n d k)
   (define (frac i)
@@ -27,6 +25,6 @@
         (/ (n i)(d i))))
  (frac 1))
 
-(cont-frac 1
-           (d 5)
+(cont-frac (lambda (i) 1.0)
+           d
            5)
