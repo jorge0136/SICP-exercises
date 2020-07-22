@@ -1,5 +1,4 @@
-#lang racket
-(require racket/trace)
+#lang sicp
 ;; Exercise 1.37.  a. An infinite continued fraction is an expression of the form
 
 ;; f = n1 / d1 + n2/ d2 + n3 / d3 + n4 / d4 + n5
@@ -19,17 +18,34 @@
 
 ;; (n1) / (d1 + n2/ d2) + (n1 / d1)
 
-;;kn is the number of times we loop.
+;; k is the number of times we loop. AKA when do we truncate the expansion of the fraction? 
 ;; d is a procedure to apply.
 ;; n is a procedure to apply.
-(define (cont-frac n d k)
-  (cond ((= k 1) (/ (n k) (d k)))
-  (/ (n k)
-     (+ (d k)
-        (cont-frac n d (- k 1))))))
+(define (cont-frac-recursive n d k)
+  (define (iter n d k i)
+          (if (= k i)
+                 (/ (n i) (d i))
+                 (/ (n i)
+                    (+ (d i) (iter n d k (+ i 1))))))
+  (iter n d k 1))
 
-(trace cont-frac)
+;; k must be 11 or larger to get 4 decimal places of accuracy. 
+(cont-frac-recursive (lambda (i) 1.0)
+                     (lambda (i) 1.0)
+                     11)
 
-(cont-frac (lambda (i) 1.0)
-           (lambda (i) 1.0)
-           5)
+;; 1/phi = 0.61803398875
+
+;; To make this iterative I needed to change the direction I was counting `i`.
+(define (cont-frac-iterative n d k)
+  (define (iter n d k i result)
+          (if (= 0 i)
+               result
+               (iter n d k (- i 1) (/ (n i)
+                                      (+ result (d i))))))
+  (iter n d k (- k 1) (/ (n k)
+                         (d k))))
+
+(cont-frac-iterative (lambda (i) 1.0)
+                     (lambda (i) 1.0)
+                     11)
