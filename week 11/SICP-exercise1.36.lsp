@@ -26,14 +26,13 @@
 (x_to_x_equals_1000_solver)
 
 ;; Average damping...
-;; (Note that y = (1/2)(y + x/y) is a simple transformation of the equation y = x/y; to derive it,
-;; add y to both sides of the equation and divide by 2.)
+;; Add x to both sides of the equation and divide by 2.
 
-;; TODO: Give the damping procedure a name, it's a bit of a mess. 
+;; TODO: Better name for x_1 in average_damp? Is there another more clean way to abstract it out? 
 (define (damped_x_to_x_equals_1000_solver)
-  (fixed-point (lambda (x) (/ (+ x
-                                (/ (log 1000) (log x)))
-                               2))
+  (define(halve x) (/ x 2))
+  (define (average_damp x x_1) (halve ( + x x_1)))
+  (fixed-point (lambda (x) (average_damp x (/ (log 1000) (log x))))
                2.0))
 (newline)
 (damped_x_to_x_equals_1000_solver)
