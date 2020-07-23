@@ -47,8 +47,10 @@
 (d 8)
 (d 9)
 
-(cont-frac-recursive (lambda (i) 1.0)
-                     d
-                     24)
+(define (eulers) (+ (cont-frac-recursive (lambda (i) 1.0)
+                                         d
+                                         12)
+                    2))
+(eulers)
 ;; e = 2.71828
 
