@@ -12,7 +12,9 @@
 
 ((double inc) 2)
 
+
 ;;    8              4
 (((double (double double)) inc) 5)
 ;; Adds 16 instead of 1. 
-;; Why 16 instead of 8? double doubled a second and then a third time is only 2 * 2 * 2. 
+;; Why 16 instead of 8? double doubled a second and then a third time is only 2 * 2 * 2.
+;; (f(f  (f(f x))   )) ? Or is it more than this?
