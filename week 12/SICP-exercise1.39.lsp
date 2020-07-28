@@ -16,27 +16,11 @@
 
 (define (square x) (* x x))
 
-(define (d i)
-        (define x 3.0)
-        (if (= i 1) x (- (square x))))
-
-(newline) (display "Testing d with arbitrary x") (newline)
-(d 1)
-(d 2)
-(d 3)
-(d 4)
-(d 5)
-(d 6)
-(d 7)
-(d 8)
-(d 9)
-
-
-;; Originally had ` (if (odd? i) i)`
 (define (n i)
-        (- (* 2.0 i) 1))
+        (define x 3.0)
+        (if (= i 1) x (- (square x)))) ;; Note the square needs to be negative as we are subtracting. 
 
-(newline) (display "Testing n") (newline)
+(newline) (display "Testing n with arbitrary x") (newline)
 (n 1)
 (n 2)
 (n 3)
@@ -46,6 +30,22 @@
 (n 7)
 (n 8)
 (n 9)
+
+
+;; Originally had ` (if (odd? i) i)`
+(define (d i)
+        (- (* 2.0 i) 1))
+
+(newline) (display "Testing d") (newline)
+(d 1)
+(d 2)
+(d 3)
+(d 4)
+(d 5)
+(d 6)
+(d 7)
+(d 8)
+(d 9)
 
 (define (tan-cf x k)
   (define (n i)
