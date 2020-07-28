@@ -12,7 +12,7 @@
                 (/ (n i) (d i))
                 (/ (n i)
                    (+ (d i) (iter k (+ i 1))))))
-  (iter k 1)) ;; iter from k is 0 vs 1? 
+  (iter k 1))
 
 (define (square x) (* x x))
 
@@ -20,9 +20,7 @@
         (define x 3.0)
         (if (= i 1) x (- (square x))))
 
-(newline)
-(display "Testing d")
-(newline)
+(newline) (display "Testing d with arbitrary x") (newline)
 (d 1)
 (d 2)
 (d 3)
@@ -38,9 +36,7 @@
 (define (n i)
         (- (* 2.0 i) 1))
 
-(newline)
-(display "Testing n")
-(newline)
+(newline) (display "Testing n") (newline)
 (n 1)
 (n 2)
 (n 3)
@@ -52,17 +48,19 @@
 (n 9)
 
 (define (tan-cf x k)
-  (define (d i)
-          (if (= i 1) x (- (square x))))
   (define (n i)
+          (if (= i 1) x (- (square x))))
+  (define (d i)
           (- (* 2.0 i) 1))
   (cont-frac-recursive n d k))
 
-(newline)
-(define x 1)
-(display (tan-cf x 15)) (newline)
-(display (tan x)) (newline)
 
+(newline) (display "testing tan-cf") (newline)
+(define x 1)
+(tan-cf x 15)
+(tan x)
+
+(newline)
 (define y 1.2)
-(display (tan-cf y 15)) (newline)
-(display (tan y)) (newline)
+(tan-cf y 15)
+(tan y)
