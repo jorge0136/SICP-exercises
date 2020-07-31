@@ -91,3 +91,6 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 * Lecture [2a Part 1] (https://www.youtube.com/watch?v=eJeMOEiHv8c) From 40 min mark to the end.
 * Reading: [1.34](http://sarabander.github.io/sicp/html/1_002e3.xhtml#g_t1_002e3_002e4)
 * Problems: 1.39 - 1.42
+
+### Week 13
+* Problems: 1.43 - 1.46
