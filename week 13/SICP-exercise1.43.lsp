@@ -1,3 +1,4 @@
+#lang sicp
 ;; Exercise 1.43: If f is a numerical function and n is a positive integer, then we can form the nth
 ;; repeated application of f, which is defined to be the function whose value at x is
 ;; f(f(…(f(x))…)). For example, if f is the function x↦x+1, then the nth repeated application of f
@@ -7,7 +8,17 @@
 ;; procedure that computes the nth repeated application of f. Your procedure should be able to be
 ;; used as follows:
 
-((repeated square 2) 5)
-625
+;; ((repeated square 2) 5)
+;; 625
 
 ;; Hint: You may find it convenient to use compose from Exercise 1.42.
+
+(define (square x) (* x x))
+(define (compose f g)
+  (lambda (x)
+    (f (g x)))) 
+
+(define (repeated f x)
+  (compose f f))
+
+((repeated square 2) 5)
