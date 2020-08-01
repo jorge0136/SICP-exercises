@@ -17,18 +17,17 @@
       f
   (compose f (repeated f (- n 1)))))
 
-;; Why couldn't I use an named average procedure? 
 (define (average a b c)
   (/ (+ a b c)
      3))
 
+;; How to get handle around the argument `x` to `f`? Use a lambda. 
 (define (smooth f)
    (define dx 0.00001)
    (lambda (x)
-     (/ (+ (f (- x dx))
-           (f x)
-           (f (+ x dx)))
-         3)))
+     (average (f (- x dx))
+              (f x)
+              (f (+ x dx)))))
 
 (define (n-fold-smooth f n)
   ((repeated smooth n) f))
