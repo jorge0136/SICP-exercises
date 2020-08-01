@@ -18,7 +18,10 @@
   (lambda (x)
     (f (g x)))) 
 
-(define (repeated f x)
-  (compose f f))
-
-((repeated square 2) 5)
+(define (repeated f n)
+  (if (= n 1)
+      f
+  (compose f (repeated f (- n 1)))))
+ 
+((repeated square 2) 5) ;; 5^(2^2) == 625
+((repeated square 3) 5) ;; 5^(2^3) == 390625
