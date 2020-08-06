@@ -1,4 +1,4 @@
-#lang racket 
+#lang racket
 ;; Exercise 1.45: We saw in 1.3.3 that attempting to compute square roots by naively finding a fixed
 ;; point of y↦x/y does not converge, and that this can be fixed by average damping. The same method
 ;; works for finding cube roots as fixed points of the average-damped y↦x/y2. Unfortunately, the
@@ -33,7 +33,7 @@
   (/ (+ x y) 2))
 
 (define (average-damp f)
-  (lambda (x) 
+  (lambda (x)
     (average x (f x))))
 
 (define (^ base exponent)
@@ -43,16 +43,12 @@
            (*^ (- exponent 1) (* acc base))))
    (*^ exponent 1))
 
-(define (square x n)
-  (fixed-point
-   (repeated
-    (average-damp
-     (lambda(y) (/ x (^ y n)))) 2)
-   1.0))
-
-((square 5 3)5)  
 
 
+(define (square-n x n)
+ (fixed-point
+  ((repeated average-damp 2.0)
+     (lambda(y) (/ x (^ y (- n 1))))) 1.0))
 
 
-
+(square-n 10000 4.0)
