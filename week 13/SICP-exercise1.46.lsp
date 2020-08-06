@@ -21,8 +21,8 @@
         guess 
         ((iterative-improve good-enough? improve) (improve guess))))) 
 
-(define (close-enough? v1 v2)
-  (< (abs (- v1 v2)) 0.00001)) 
+(define (close-enough? a b)
+  (< (abs (- a b)) 0.00001)) 
   
 (define (fixed-point f first-guess) 
   ((iterative-improve 
@@ -40,3 +40,4 @@
    1.0))
 
 (sqrt 9) 
+
