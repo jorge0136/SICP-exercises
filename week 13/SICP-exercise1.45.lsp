@@ -11,8 +11,6 @@
 ;; nth roots using fixed-point, average-damp, and the repeated procedure of Exercise 1.43. Assume
 ;; that any arithmetic operations you need are available as primitives.
 
-
-
 (define tolerance 0.00001)
 (define (fixed-point f first-guess)
   (define (close-enough? v1 v2)
@@ -65,3 +63,12 @@
   (if (= n 1)
       f
   (compose f (repeated f (- n 1)))))
+
+(define (nth-root x n)
+  (fixed-point
+     ((repeated average 3)
+        (lambda (y) (/ x (expt y (- n 1)))))
+     1.0))
+
+(nth-root 2 3)
+
