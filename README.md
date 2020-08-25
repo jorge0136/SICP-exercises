@@ -94,3 +94,9 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 
 ### Week 13
 * Problems: 1.43 - 1.46
+
+
+### Week 14
+* Lecture: [2b Part 1](https://www.youtube.com/watch?v=ymsbTVLbyN4) Up to about the 41 minute mark.
+* Reading: [2.1.1 - 2.1.3](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-4.html#%_toc_%_sec_2.1)
+* Problems: 2.1 - 2.3
