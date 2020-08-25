@@ -35,6 +35,7 @@
 ;; Stealing testing code from http://wiki.drewhess.com/wiki/SICP_exercise_1.44
 
 (define (impulse-maker a y)
+  
   (lambda (x)
     (if (= x a)
         y

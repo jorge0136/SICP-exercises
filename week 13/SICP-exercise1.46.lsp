@@ -41,3 +41,4 @@
 
 (sqrt 9) 
 
+(fixed-point cos 1)
