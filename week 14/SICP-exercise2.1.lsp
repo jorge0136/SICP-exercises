@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 #lang sicp
+=======
+>>>>>>> master
 ;; Exercise 2.1.  Define a better version of make-rat that handles both positive and
 ;; negative arguments. Make-rat should normalize the sign so that if the rational
 ;; number is positive, both the numerator and denominator are positive, and if the
 ;; rational number is negative, only the numerator is negative.
+<<<<<<< HEAD
 
 (define (add-rat x y)
   (make-rat (+ (* (numer x) (denom y))
@@ -54,3 +58,5 @@
 (print-rat negative-one-third)
 
 (print-rat (add-rat negative-one-third negative-one-third))
+=======
+>>>>>>> master
