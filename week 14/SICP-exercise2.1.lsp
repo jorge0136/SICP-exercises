@@ -32,6 +32,13 @@
   (display "/")
   (display (denom x)))
 
+; Truth table for N and D. 
+;N	D	(N∧D)
+;T	T	  T		
+;T	F	  F		
+;F	T	  F		
+;F	F	  F			
+
 ;; if either numerator or denominator are negative, make denominator negative.
 (define (make-rat n d)
   (let ((g (gcd n d)))
