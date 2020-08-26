@@ -29,11 +29,16 @@
        (make-point (/ (+ (x-point start)(x-point end) 2))
               (/ (+ (y-point start) (y-point end)) 2))))
 
-(define (perimeter segment_1 segment_2 segment_3 segment_4)
-  (+ (abs (- (x-point(start-segment segment_1)) (x-point(start-segment segment_2))))
-     (abs (- (x-point(start-segment segment_3)) (x-point(start-segment segment_4))))
+(define (perimeter segment_1 segment_2 segment_3)
+  (+ (* 2 (abs (- (x-point(start-segment segment_1)) (x-point(start-segment segment_2)))))
+     (* 2 (abs (- (y-point(start-segment segment_1)) (y-point(start-segment segment_3)))))
+     ))
+
+(define (area segment_1 segment_2 segment_3)
+  (* (abs (- (x-point(start-segment segment_1)) (x-point(start-segment segment_2))))
      (abs (- (y-point(start-segment segment_1)) (y-point(start-segment segment_3))))
-     (abs (- (y-point(start-segment segment_2)) (y-point(start-segment segment_4))))))
+     ))
+     
 
 
 (define first-point (make-point 1 3))
@@ -44,7 +49,10 @@
 (define line_1 (make-segment first-point second-point))
 (define line_2 (make-segment second-point fourth-point))
 (define line_3 (make-segment third-point fourth-point))
-(define line_4 (make-segment first-point third-point))
 
 
-(perimeter line_1 line_2 line_3 line_4)
+
+
+(perimeter line_1 line_2 line_3)
+(area line_1 line_2 line_3)
+
