@@ -34,7 +34,7 @@
 ;function. Zero of f of x is x.
 (lambda (f) (lambda (x) (f x)))
 
-; We can define zero as follows.
+; We can define one as follows.
 (define one (lambda (f) (lambda (x) (f x))))
 
 ; Adding one to one gets us two.
