@@ -25,6 +25,15 @@
 (define (inc n)
   (+ n 1))
 
+
+; subsitution method
+(add-1 zero)
+((lambda (f) (lambda (x) (f ((n f) x)))) zero)
+((lambda (f) (lambda (x) (f ((zero f) x))))
+((lambda (f) (lambda (x) (f ((f (f) x))))))
+(lambda (f) (lambda (x) (f (f x))))
+(lambda (f) (lambda (x) (f x)))
+
 ;; substitution method
 (define zero (lambda (g) (lambda (y) y)))
 
