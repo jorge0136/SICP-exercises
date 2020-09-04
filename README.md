@@ -100,3 +100,12 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 * Lecture: [2b Part 1](https://www.youtube.com/watch?v=ymsbTVLbyN4) Up to about the 41 minute mark.
 * Reading: [2.1.1 - 2.1.3](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-4.html#%_toc_%_sec_2.1)
 * Problems: 2.1 - 2.3
+
+### Week 15
+* Lecture: [2b Part 1](https://www.youtube.com/watch?v=ymsbTVLbyN4) Finish the rest of the lecture.
+* Reading: [2.1.3](http://sarabander.github.io/sicp/html/2_002e1.xhtml#g_t2_002e1_002e4)
+* Problems: 2.4 - 2.8
+
+### Week 16
+* Reading: [2.1.4](http://sarabander.github.io/sicp/html/2_002e1.xhtml#g_t2_002e1_002e4)
+* Problems: 2.9 - 2.11
