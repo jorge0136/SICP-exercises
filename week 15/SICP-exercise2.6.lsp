@@ -18,7 +18,7 @@
 ; evaluate (add-1 zero)). Give a direct definition of the addition procedure + (not in terms of
 ; repeated application of add-1).
 
-
+; f is the function that will be applied n times, and x is the item to operate on.
 
 ; means of testing zero
 
