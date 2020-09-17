@@ -15,7 +15,7 @@
 ; I reason that the minimum value the difference could be is the difference of the two lower
 ; bounds and the maximum value it could be is the difference of the two upper bounds:
 (define (sib-interval x y)
-  (make-interval (- (lower-bound x) (lower-bound y))
-                 (- (upper-bound x) (upper-bound y))))
+  (make-interval (- (lower-bound x) (upper-bound y))
+                 (- (upper-bound x) (lower-bound y))))
 
 (sib-interval foo fiz)
