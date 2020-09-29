@@ -32,3 +32,35 @@
 ;                coin-values)))))
 ;
 ; Define the procedures first-denomination, except-first-denomination, and no-more? in terms of primitive operations on list structures. Does the order of the list coin-values affect the answer produced by cc? Why or why not?
+
+(define us-coins
+  (list 50 25 10 5 1))
+
+(define (no-more? x) (null? x))
+(define (except-first-denomination  list) (cdr list))
+(define (first-denomination  list) (car list))
+
+
+(define (cc amount coin-values)
+  (cond ((= amount 0)
+         1)
+        ((or (< amount 0)
+             (no-more? coin-values))
+         0)
+        (else
+         (+ (cc
+             amount
+             (except-first-denomination
+              coin-values))
+            (cc
+             (- amount
+                (first-denomination
+                 coin-values))
+             coin-values)))))
+
+
+(cc 100 us-coins) ; => 292
+; The order of the list does not impact the result. We are no longer relying on arithmetic to
+; determine the next coin to process. The coin we need is accessed by car and cdr so order is
+; not important.
+
