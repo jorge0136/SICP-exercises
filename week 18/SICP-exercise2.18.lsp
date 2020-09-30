@@ -24,18 +24,24 @@
 (define (list-ref items n)
   (if (= n 0)
       (car items)
-      (list-ref (cdr items)
+      (list-ref (cdr items) 
                 (- n 1))))
 
 
 (define (reverse items)
-  (let ((items-length (length items))
-        (last-item (last-pair items)))
-  (define (reverse-iter items count))
+  (let ((items-length (length items)))
+  (define (reverse-iter new_list og_list count)
     (if (= 0 count)
-      (cdr items)
-      (cons (last-item)
-             (reverse-iter items (- 1 count)))
-    )
-)
+      new_list
+     (reverse-iter (append new_list (list (list-ref og_list (- 1 count)))) og_list (- 1 count))))
+  (reverse-iter (list (last-pair items)) items (- 1 items-length))))
+
+
 (reverse (list 1 4 9 16 25))
+
+; (list-ref (list 1 3) 1)
+
+; (define items (list 1 2 3))
+
+; (list (last-pair items))
+
