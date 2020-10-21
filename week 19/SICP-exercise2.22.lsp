@@ -12,6 +12,8 @@
 
 ;; Unfortunately, defining square-list this way produces the answer list in the reverse order of the one desired. Why?
 
+ ;; Cause it's backwards! It `cons`es the last item from the front of the list to the answer, then gets the next item from the front, etc. 
+
 ;; Louis then tries to fix his bug by interchanging the arguments to cons:
 
 ;; (define (square-list items)
@@ -25,3 +27,5 @@
 
 ;; This doesn't work either. Explain.
 
+
+;; The reason why is that it keeps new upping a list each time. We saw this in 2.17 as an example. 
