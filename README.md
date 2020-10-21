@@ -115,4 +115,8 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 
 ### Week 18
 * Reading: [2.2](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2)
-* Problems 2.17 - 2.19
+* Problems 2.17 - 2.19 (we ended up skipping these problems)
+
+### Week 19
+* Reading: [2.2](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2)
+* Problems 2.20 - 2.26
