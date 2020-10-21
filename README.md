@@ -109,3 +109,14 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 ### Week 16
 * Reading: [2.1.4](http://sarabander.github.io/sicp/html/2_002e1.xhtml#g_t2_002e1_002e4)
 * Problems: 2.9 - 2.11
+
+### Week 17
+* Problems: 2.12 - 2.16
+
+### Week 18
+* Reading: [2.2](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2)
+* Problems 2.17 - 2.19 (we ended up skipping these problems)
+
+### Week 19
+* Reading: [2.2](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2)
+* Problems 2.20 - 2.26
