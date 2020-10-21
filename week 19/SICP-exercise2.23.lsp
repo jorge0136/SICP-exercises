@@ -8,3 +8,11 @@
 ;; 88
 
 ;; The value returned by the call to for-each (not illustrated above) can be something arbitrary, such as true. Give an implementation of for-each.
+
+(define (for-each procedure items)
+   (cond ((null? items) #t)
+         (else (procedure (car items))
+               (for-each procedure (cdr items)))))
+
+ (for-each (lambda (x) (newline) (display x))
+           (list 57 321 88))
