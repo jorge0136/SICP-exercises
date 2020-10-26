@@ -13,7 +13,7 @@
 ; chapter.
 
 (define (fringe x)
-  (if (or (not (pair? x)) (not (pair? (car x)))) x
+  (if (or (null? x) (not (pair? (car x)))) x
       (append (fringe (car x)) (fringe (cdr x)))))
 
 (define x

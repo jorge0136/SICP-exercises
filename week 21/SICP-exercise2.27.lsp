@@ -19,7 +19,7 @@
            (reverse-iter (cdr item) (cons (deep-reverse (car item)) new-list)))))
   (reverse-iter list nil))
 
-:define x
+(define x
   (list (list 1 2) (list 3 4)))
 
 (deep-reverse x) ;((4 3) (2 1))
