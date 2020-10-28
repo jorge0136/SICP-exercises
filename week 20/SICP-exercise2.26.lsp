@@ -13,11 +13,24 @@
             (append (cdr list1)
                     list2))))
 
-(append x y)
+; (append x y)
 ; (1, 2, 3, 4, 5, 6)
 
 (cons x y)
 ; ((1 2 3) 4 5 6)
+; (( 1 . 2) . 3) . nil))) . 4) . 5) . 6)))
+(display "******")
 
-(list x y)
+(display (car (cons x y)))
+(newline)
+
+(define a (cons 2 3))
+(define b (cons 4 5))
+(define c (cons a b))
+(display c)
+(newline)
+(display (car c))
+
+
+; (list x y)
 ; ((1 2 3) (4 5 6))
