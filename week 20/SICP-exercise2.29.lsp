@@ -70,7 +70,7 @@
 (balanced? mobile-alabama)
 
 ;d.  Suppose we change the representation of mobiles so that the constructors are
-;
+
 ;(define (make-mobile left right)
 ;  (cons left right))
 ;(define (make-branch length structure)
@@ -78,4 +78,4 @@
 
 ; How much do you need to change your programs to convert to the new representation?
 
-; I think only the selectors would need to change? 
+; I think only the selectors would need to change? Construction would be much more complicated, as one would need to construct lists in advance of passing it to `make-mobile`. 
