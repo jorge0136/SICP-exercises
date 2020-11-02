@@ -12,7 +12,7 @@
   (define (fringe-iter tree result)
     (if (null? tree)
       result
-      (fringe-iter (cdr tree) (cons result (car tree)))))
+      (fringe-iter (cdr tree) (append result (car tree)))))
   (fringe-iter tree nil))
 
 (fringe x)
