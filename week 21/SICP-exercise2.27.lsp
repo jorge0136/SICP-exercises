@@ -27,7 +27,7 @@
     (if (null? items)
         reversed-list
         (deep-reverse-iter (cdr items)
-                      ; Worth splitting single members vs. pairs? Works to send all to reverse. 
+                      ; Worth splitting single members vs. pairs? Works to send all to reverse.
                       (append (list (reverse (car items)))
                               reversed-list))))
   (deep-reverse-iter items '()))
@@ -39,10 +39,10 @@
 (deep-reverse x)
 ; --> ((4 3) (2 1))
 
-; Solution found online, I really like the solution. Still uses `reverse` for the heavy lifting. 
-(define (deep-reverse-2 items) 
-   (if (pair? items) 
-       (reverse (map deep-reverse-2 items)) 
+; Solution found online, I really like the solution. Still uses `reverse` for the heavy lifting.
+(define (deep-reverse-2 items)
+   (if (pair? items)
+       (reverse (map deep-reverse-2 items))
        items))
 
 (deep-reverse-2 x)

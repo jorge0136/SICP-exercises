@@ -36,13 +36,13 @@
 
 ;b.  Using your selectors, define a procedure total-weight that returns the total weight of a mobile.
 
-; Renvisioned version of 2.28. 
+; Renvisioned version of 2.28.
 (define (branch-weight branch)
    (if (pair? (branch-structure branch))
        (total-weight (branch-structure branch))
        (branch-structure branch)))
 
-; I wanted to use map but it didn't really make sense given that there are left and right branches. 
+; I wanted to use map but it didn't really make sense given that there are left and right branches.
 (define (total-weight mobile)
    (+ (branch-weight (left-branch mobile))
       (branch-weight (right-branch mobile))))
@@ -55,7 +55,7 @@
       (branch-weight branch)))
 
 (define (branch-balanced? branch)
-  ; Got stuck here for awhile, not figuring out that I need to check for a `pair` again. 
+  ; Got stuck here for awhile, not figuring out that I need to check for a `pair` again.
    (if (pair? (branch-structure branch))
        (balanced? (branch-structure branch))
        true))
@@ -78,4 +78,4 @@
 
 ; How much do you need to change your programs to convert to the new representation?
 
-; I think only the selectors would need to change? Construction would be much more complicated, as one would need to construct lists in advance of passing it to `make-mobile`. 
+; I think only the selectors would need to change? Construction would be much more complicated, as one would need to construct lists in advance of passing it to `make-mobile`.

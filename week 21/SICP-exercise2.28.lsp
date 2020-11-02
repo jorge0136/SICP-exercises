@@ -3,7 +3,7 @@
 ; a list whose elements are all the leaves of the tree arranged in left-to-right order.
 
 (define (fringe tree)
-  (cond ((null? tree) nil) 
+  (cond ((null? tree) nil)
         ((pair? tree) (append (fringe (car tree))
                               (fringe (cdr tree))))
         (else (list tree))))
