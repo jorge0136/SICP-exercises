@@ -21,20 +21,20 @@
 
 (define test_list (list 1 (list 2 (list 3 4) 5) (list 6 7)))
 
- (define (square-tree tree) 
-   (cond ((null? tree) nil) 
-         ((not (pair? tree)) (square tree))
-         ; cons over list here to get the right `tree` shape. 
-         (else (cons (square-tree (car tree)) 
-                     (square-tree (cdr tree)))))) 
+(define (square-tree tree) 
+  (cond ((null? tree) nil) 
+        ((not (pair? tree)) (square tree))
+        ; cons over list here to get the right `tree` shape. 
+        (else (cons (square-tree (car tree)) 
+                    (square-tree (cdr tree)))))) 
 
 (square-tree test_list)
 
- (define (square-tree-by-map tree) 
-   (map (lambda (x) 
-          (cond ((null? x) nil) 
-                ((not (pair? x)) (square x)) 
-                (else (square-tree-by-map x)))) 
-        tree))
+(define (square-tree-by-map tree) 
+  (map (lambda (x) 
+         (cond ((null? x) nil) 
+               ((not (pair? x)) (square x)) 
+               (else (square-tree-by-map x)))) 
+       tree))
 
 (square-tree-by-map test_list)
