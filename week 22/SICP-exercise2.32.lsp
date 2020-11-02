@@ -12,8 +12,9 @@
   (if (null? s)
       (list nil)
       ; recursive case (subsets excluding head)
-      (let ((rest (subsets (cdr s))))
-        (append rest (map (lambda (x) (subsets-including-head s x)) rest)))))
+      (let ((all-the-rest (subsets (cdr s))))
+        (append all-the-rest
+                (map (lambda (one-of-the-rest) (subsets-including-head s one-of-the-rest)) all-the-rest)))))
 
 (define test-list (list 1 2 3))
 (display test-list)
