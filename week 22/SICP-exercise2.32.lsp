@@ -5,8 +5,20 @@
 ; Complete the following definition of a procedure that generates the set of subsets of a set
 ; and give a clear explanation of why it works:
 
-; (define (subsets s)
-;   (if (null? s)
-;       (list nil)
-;       (let ((rest (subsets (cdr s))))
-;         (append rest (map <??> rest)))))
+(define (subsets-including-head a b)(cons (car a) b))
+
+(define (subsets s)
+  ; base case
+  (if (null? s)
+      (list nil)
+      ; recursive case (subsets excluding head)
+      (let ((rest (subsets (cdr s))))
+        (append rest (map (lambda (x) (subsets-including-head s x)) rest)))))
+
+(define test-list (list 1 2 3))
+(display test-list)
+
+(subsets test-list)
+
+; To get our subsets we need to combine two lists. subsets excluding head and the subsets including head.
+; In this problem we are finding the `Power Set`. https://en.wikipedia.org/wiki/Power_set#:~:text=In%20mathematics%2C%20the%20power%20set,of%20two%20elements%2C%202S.
