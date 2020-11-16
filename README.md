@@ -129,3 +129,6 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 
 ### Week 22
 * Problems 2.30 - 2.32
+
+### Week 23
+* Problems 2.33 - 2.35
