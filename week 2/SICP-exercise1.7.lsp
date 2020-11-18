@@ -1,41 +1,10 @@
 #lang sicp
-
-(define (square x) (* x x))
-
-(define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.001))
-
-(define (improved-good-enough? guess x)
-  (< (abs (-  guess  (improve guess x) )) 0.001))
-
-(define (average x y)
-  (/ (+ x y) 2))
-
-(define (improve guess x)
-  (average guess (/ x guess)))
-
-(define (sqrt-iter guess x)
-  (if (improved-good-enough? guess x)
-      guess
-      (sqrt-iter (improve guess x) x)))
-
-(define (sqrt x)
-  (sqrt-iter 1.0 x))
-
-(sqrt 10000000000000)
-
-; Original good enough
-; ________________________
-; (sqrt 0.00002) => 0.03146283571116667  (actual) 0.004472135955
-
-; (sqrt 0.0008) =>  0.03934452001945049 (actual) 0.028284271247462
-
-; (sqrt 10000000000000) => endless loop
-
-;  Improved good enough
-; ________________________
-; (sqrt 0.00002) => 0.005480229965657565 (actual) 0.004472135955
-
-; (sqrt 0.0008) => 0.028324767875553304  (actual) 0.028284271247462
-
-; (sqrt 10000000000000) => 3162277.6601683795 (actual) 3162277.660168379331999
+;; Exercise 1.7: The good-enough? test used in computing square roots will not be very effective
+;; for finding the square roots of very small numbers. Also, in real computers, arithmetic
+;; operations are almost always performed with limited precision. This makes our test inadequate
+;; for very large numbers.
+;; Explain these statements, with examples showing how the test fails for small and large numbers.
+;; An alternative strategy for implementing  good-enough? is to watch how `guess` changes from one
+;; iteration to the next and to stop when the change is a very small fraction of the guess.
+;; Design a square-root procedure that uses this kind of end test. Does this work better for small
+;; and large numbers?

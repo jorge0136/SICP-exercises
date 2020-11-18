@@ -1,19 +1,5 @@
 #lang sicp
-
-(define (cont-frac n d k)
-  (define (cont-frac-iter i result)
-    (if (= i 0) result
-        (cont-frac-iter (- i 1) (/ (n i) (+ (d i) result)))))
-  (cont-frac-iter k 0))
-
-(define (euler-seq x)
-  (if (= (modulo x 3) 2) (* 2 (ceiling (/ x 3)))
-      1))
-
-(define (approximate-e)
-  (+ (cont-frac (lambda (i) 1.0)
-                euler-seq
-                100)
-     2))
-
-(approximate-e) ;=> 2.7182818284590455 A.K.A Close enough.
+;; Exercise 1.38.  In 1737, the Swiss mathematician Leonhard Euler published a memoir De Fractionibus Continuis,
+;; which included a continued fraction expansion for e - 2, where e is the base of the natural logarithms.
+;; In this fraction, the Ni are all 1, and the Di are successively 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, ....
+;; Write a program that uses your cont-frac procedure from exercise 1.37 to approximate e, based on Euler's expansion.

@@ -7,25 +7,7 @@
 ;; procedure that computes the nth repeated application of f. Your procedure should be able to be
 ;; used as follows:
 
-; ((repeated square 2) 5)
-; 625
+((repeated square 2) 5)
+625
 
 ;; Hint: You may find it convenient to use compose from Exercise 1.42.
-
-#lang sicp
-
-(define (square x) (* x x ))
-
-(define (compose f g)
-  (lambda(x) (f (g x))))
-
-
-(define (repeated f n)
-  (if
-   (= n 1) f
-   (compose f (repeated f (- n 1)))))
-
-
-((repeated square 2) 5) ;=> 625
-
-; This is the same as (square (square 5))

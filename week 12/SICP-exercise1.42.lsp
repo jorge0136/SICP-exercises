@@ -2,14 +2,5 @@
 ;; be the function x↦f(g(x)). Define a procedure compose that implements composition. For example,
 ;; if inc is a procedure that adds 1 to its argument,
 
-#lang sicp
-
-(define (inc x)
-  (+ 1 x))
-
-(define (square x) (* x x ))
-
-(define (compose f g)
-  (lambda(x) (f (g x))))
-
-((compose square inc) 6) ; => 49
+((compose square inc) 6)
+49

@@ -17,6 +17,3 @@
 ;; ``I don't see what difference that could make,'' says Louis. ``I do.'' says Eva.
 ;;  ``By writing the procedure like that, you have transformed the (log n) process
 ;;  into a (n) process.'' Explain.
-
-; We are making 2 calls to expmod on the even case. The will cancel out our log n time because we'll
-; be doing twice the work at each recursion and we'll end up with O(n).

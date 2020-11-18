@@ -6,16 +6,5 @@
 ;;  1 3 3 1
 ;; 1 4 6 4 1
 
-;; The numbers at the edge of the triangle are all 1, and each number inside the triangle is the sum
-;; of the two numbers above it. Write a procedure that computes elements of Pascal's triangle by
-;; means of a recursive process.
-
-;1 1 1 1 1
-;1 2 3 4
-;1 3 6
-;1 4
-;1
-(define (pascel x y)
-  (cond ((<= x 0) 1)
-        ((<= y 0) 1)
-        (else (+ (pascel (- x 1) y ) (pascel x (- y 1))))))
+;; The numbers at the edge of the triangle are all 1, and each number inside the triangle is the sum of the two numbers above it.
+;; Write a procedure that computes elements of Pascal's triangle by means of a recursive process.

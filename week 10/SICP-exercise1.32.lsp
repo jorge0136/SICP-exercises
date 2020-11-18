@@ -15,28 +15,3 @@
 ;; 2. If your accumulate procedure generates a recursive process, write one that generates an
 ;; iterative process. If it generates an iterative process, write one that generates a recursive
 ;; process
-
-;;Helpers
-(define (identity n) n)
-(define (inc n) (+ n 1))
-
-;; Accumulate Recursive
-(define (accumulate
- combiner null-value term a next b)
-    (if (> a b)
-      null-value
-      (combiner (term a)
-         (accumulate combiner null-value term (next a) next b))))
-
-(accumulate * 1 identity 1 inc 7) ; => 5040
-
-;; Accumulate Iterative
-(define (accumulate
- combiner null-value term a next b)
-  (define (accumulate-iter n result)
-    (if (> n b)
-      result
-      (accumulate-iter (next n) (combiner result (term n)))))
-  (accumulate-iter a null-value))
-
-(accumulate * 1 identity 1 inc 7) ; => 5040

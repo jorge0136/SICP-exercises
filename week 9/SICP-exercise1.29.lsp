@@ -12,42 +12,4 @@
 ;; Use your procedure to integrate cube between 0 and 1 (with n = 100 and n = 1000),
 ;;  and compare the results to those of the integral procedure shown above.
 
-#lang sicp
 
-(define (cube n) (* n n n))
-
-(define (sum term a next b)
-  (if (> a b)
-      0
-      (+ (term a)
-         (sum term (next a) next b))))
-
-
-(define (simpsons-integral f a b n)
-
-  (define (inc n) (+ n 1))
-
-  (define h (/ (- b a) n))
-
-  (define (coeff k)
-    (cond
-      ((or (= k 0) (= k n)) 1)
-      ((odd? k) 4 )
-      (else 2 )))
-
-  (define (y k) (f (+ a (* k h))))
-
-  (define (term k)
-    (*
-      (coeff k)
-      (y k)))
-
-  (*
-   (sum term 0 inc n)
-   (/ h 3)))
-
-
-(simpsons-integral cube 0 1.0 100) ;-> 0.24999999999999992
-(simpsons-integral cube 0 1.0 1000) ;-> 0.2500000000000003
-
-;Boom!

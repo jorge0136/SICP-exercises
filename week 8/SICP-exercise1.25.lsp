@@ -7,5 +7,3 @@ exponentials, we could have simply written
 
 ;; Is she correct? Would this procedure serve as well for our fast prime tester?
 ;; Explain.
-
-The procedure would work but it would generate large intermediately values.

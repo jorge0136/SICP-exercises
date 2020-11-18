@@ -10,42 +10,27 @@
 ;; Assume that the sequence is to be evaluated in the order in which it is presented.
 
 10
-  ;; -> 10
 (+ 5 3 4)
-  ;; --> 12
 (- 9 1)
-  ;; --> 8
 (/ 6 2)
- ;; --> 3
 (+ (* 2 4) (- 4 6))
-  ;; --> 6
 (define a 3)
 (define b (+ a 1))
 (+ a b (* a b))
- ;; --> 19
 
 (= a b)
-  ;; --> #f
-  ;; This is equality check. #f is the boolean false.
 
 (if (and (> b a) (< b (* a b)))
     b
     a)
-  ;; --> 4
-  ;; Both statements are true. It returns `b`.
 
 (cond ((= a 4) 6)
       ((= b 4) (+ 6 7 a))
       (else 25))
-  ;; --> 16
-  ;; --> (= b 4 ) evalutes to true so --> (+ 6 7 a) --> 16
 
 (+ 2 (if (> b a) b a))
-  ;; --> 6
 
 (* (cond ((> a b) a)
          ((< a b) b)
          (else -1))
    (+ a 1))
-  ;; --> 16
-  ;; (< a b ) evaluates to true so --> cond returns b. (* b (+ a 1)) --> 16
