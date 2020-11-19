@@ -10,12 +10,6 @@
       (operation (car sequence)
                  (accumulate operation initial (cdr sequence)))))
 
-;(accumulate + 0 (list 1 2 3 4 5))
-;15
-;(accumulate * 1 (list 1 2 3 4 5))
-;120
-;(accumulate cons nil (list 1 2 3 4 5))
-
 (define (new-map p sequence)
   (accumulate (lambda (sequence-item accumulator) (cons (p sequence-item) accumulator))
               nil
