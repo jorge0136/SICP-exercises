@@ -1,25 +1,24 @@
 #lang sicp
 
-(define (accumulate op initial sequence)
-  (if (null? sequence)
-      initial
-      (op (car sequence)
-          (accumulate op
-                      initial
-                      (cdr sequence)))))
+(define (accumulate op init l)
+  (if (null? l) init
+      (op (car l) (accumulate op init (cdr l)))))
 
-(define (count-leaves list)
-  (accumulate
-   (lambda (item accumulator)
-     (if
-      (pair? item) (+ accumulator (count-leaves item))
-      (+ accumulator 1))
-     )
-   0
-   list)
-)
+(define (append x y)
+  (if (null? x) y
+      (cons (car x) (append (cdr x) y))))
 
-(define x (cons (list 1 2) (list 3 4)))
-(define y (list 1 (list 2 3) (cons (list 4 5) (list 6 7))))
-(count-leaves x) ;4
-(count-leaves (list x y)) ;11
+(define (flatmap proc seq)
+  (accumulate append nil (map proc seq)))
+
+(define (fringe x)
+  (if (pair? x) (flatmap fringe x)
+      (list x)))
+
+(define (count-leaves t)
+  (accumulate + 0 (map (lambda (_) 1) (fringe t))))
+
+(define y  (list (list 1 2) (list 3 4 7)))
+
+(count-leaves y)
+
