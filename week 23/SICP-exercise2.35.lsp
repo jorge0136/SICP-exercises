@@ -11,6 +11,14 @@
 ;  (if (not (pair? node)) (square node)
 ;      (map square-tree node)))
 
+; Have the map return a flat list of 1 or 0.
+
+(define (filter predicate sequence)
+  (cond ((null? sequence) nil)
+        ((predicate (car sequence))
+         (cons (car sequence)
+               (filter predicate (cdr sequence))))
+        (else (filter predicate (cdr sequence)))))
 
 (define (accumulate operation initial sequence)
   (if (null? sequence)
@@ -18,22 +26,26 @@
       (operation (car sequence)
                  (accumulate operation initial (cdr sequence)))))
 
-; TODO: Make a valid procedure to make a fla
-;(define (only-leaves t)
-;  (if (not (pair? t)) t)
-;      (map only-leaves t))
+; Breaking these out to figure out how to flatten the list to `zero` or `one` helped figure out what I needed to do. 
+(define (flatten-to-1-or-zero tree)
+  (cond ((pair? tree) 1)  
+  (else 0)))
 
-(define (fringe tree)
-  (cond ((null? tree) nil)
-        ((pair? tree) (append (fringe (car tree))
-                              (fringe (cdr tree))))
-        (else (list tree))))
+(define (test-flatten-transform x)
+  (map flatten-to-1-or-zero x))
 
- (define (count-leaves t)
-   (lambda (leaf accumulator) (+ 1 accumulator))
-               nil
-               (map (fringe t)))
+(define (count-leaves t)
+  (accumulate +
+              0
+              (map 
+               (lambda (t) 
+                 (cond ((null? t) 0) 
+                       ((pair? t) (count-leaves t)) 
+                       (else 1))) 
+               t))) 
 
 (define x (cons (list 1 2) (list 3 4)))
-(fringe x)
-;(count-leaves x)
+(count-leaves x)
+
+;(flatten-to-1-or-zero x)
+;(test-map x)
