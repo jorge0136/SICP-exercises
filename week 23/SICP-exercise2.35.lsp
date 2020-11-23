@@ -13,13 +13,6 @@
 
 ; Have the map return a flat list of 1 or 0.
 
-(define (filter predicate sequence)
-  (cond ((null? sequence) nil)
-        ((predicate (car sequence))
-         (cons (car sequence)
-               (filter predicate (cdr sequence))))
-        (else (filter predicate (cdr sequence)))))
-
 (define (accumulate operation initial sequence)
   (if (null? sequence)
       initial
