@@ -118,6 +118,7 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 * Problems 2.17 - 2.19 (we ended up skipping these problems)
 
 ### Week 19
+* Lecture: [3A Part 1](https://www.youtube.com/watch?v=2QgZVYI3tDs) To about 28 minute mark.
 * Reading: [2.2](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2)
 * Problems 2.20 - 2.23
 
@@ -132,3 +133,6 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 
 ### Week 23
 * Problems 2.33 - 2.35
+
+### Week 24
+* Problems 2.36 - 2.38
