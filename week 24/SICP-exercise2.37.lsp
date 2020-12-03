@@ -70,8 +70,8 @@
              (matrix-*-vector n-columns m-row-vector))
           m)))
 
-(define a-fine-matrix (list (list 1 2 3 4) (list 4 5 6 6) (list 6 7 8 9)))
-(define b-fine-matrix (list (list 1 2 3) (list 5 6 7) (list 9 10 11)))
+(define a-fine-matrix (list (list 1 2 3 ) (list 4 5 6) (list 6 7 8) (list 0 1 2)))
+(define b-fine-matrix (list (list 1 2) (list 5 6) (list 9 10)))
 (newline)
 (display a-fine-matrix)
 (newline)
