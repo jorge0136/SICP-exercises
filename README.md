@@ -136,3 +136,11 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 
 ### Week 24
 * Problems 2.36 - 2.38
+
+### Week 25
+* Problems 2.39 - 2.41
+
+### Week 26
+* Problems 2.42
+
+If you are stuck on the queens problem you can jump into a [future lecture](https://www.youtube.com/watch?v=skd-nyVyzBQ) and get some help.
