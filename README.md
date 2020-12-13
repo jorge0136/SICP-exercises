@@ -136,6 +136,7 @@ I created an [Anki flashcard deck](https://ankiweb.net/shared/info/1088398983) t
 
 ### Week 24
 * Problems 2.36 - 2.38
+Note that problem 2.39 fits better with this week than week 25.
 
 ### Week 25
 * Problems 2.39 - 2.41
