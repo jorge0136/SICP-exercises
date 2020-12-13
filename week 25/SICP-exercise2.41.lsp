@@ -39,8 +39,10 @@
 ; --------------- Implementation starts here -------------------
 
 (define (unique l)
-  (unique-iter l (list)))
+  (unique-iter l '() ))
 
+; I chose an iterative method primarily as it's easier to debug.
+; What impact on efficiency would a completely recursive solution have? 
 (define (unique-iter l snowflakes)
    (cond ((null? l) snowflakes)
          ((member (car l) (cdr l))
@@ -49,7 +51,11 @@
          (else (unique-iter (cdr l)
                             (append snowflakes (list(car l)))))))
 
+; Test cases for unique.
 ;(unique (list 1 2 2 3))
+;(unique (list 2 1 2 3))
+;(unique (list 3 2 1 2))
+; Note this unique implementation will maintain ordering. Ordering is important for this problem.
 
 (define (truncate-to-triplet sequence)
   (if (pair? sequence)

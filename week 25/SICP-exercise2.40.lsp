@@ -30,9 +30,9 @@
          (cons (car sequence)
                (filter predicate (cdr sequence))))
         (else (filter predicate (cdr sequence)))))
-; ******
 
-; Practicing writing and understanding accumulate. 
+; ****** accumulate and flatmap implementation boiler plate.
+
 (define (accumulate op initial sequence)
   (if (null? sequence)
       initial
@@ -44,34 +44,6 @@
 
 ; **** Boiler plate for solving prime-sum-pairs
 
-(define (enumerate-interval low high)
-  (if (> low high)
-      nil
-      (cons low (enumerate-interval (+ low 1) high))))
-
-(define (prime-sum? pair)
-  (prime? (+ (car pair) (cadr pair))))
-
-(define (make-pair-sum pair)
-  (list (car pair) (cadr pair) (+ (car pair) (cadr pair))))
-; **** 
-
-; Called easy way, this is merely extracting out and naming the prior procedure. Can we do better? 
-(define (unique-pairs-easy-way n)
-  (flatmap
-   (lambda (i)
-     (map (lambda (j) (list i j))
-          (enumerate-interval 1 (- i 1))))
-   (enumerate-interval 1 n)))
-
-(define (prime-sum-pairs n)
-  (map make-pair-sum
-       (filter prime-sum?
-               (unique-pairs-easy-way n))))
-
-(prime-sum-pairs 6)
-
-; Boiler plate in an attempt to use permutations. 
 (define (permutations s)
   (if (null? s)                    ; empty set?
       (list nil)                   ; sequence containing empty set
@@ -84,13 +56,43 @@
   (filter (lambda (x) (not (= x item)))
           sequence))
 
-; generate interval.
-; generate all possible pairs. 
-; filter to only the unique pairs. Can I come up with a way to keep the uniqued list and compare that with the filter?
-; for the uniqueness, order matters...hmmm. 
-(define (unique-pairs-ideal-way n)
-  (map (lambda(i) (list (car i) (cadr i)))
-       (permutations (enumerate-interval 1 n))))
+(define (enumerate-interval low high)
+  (if (> low high)
+      nil
+      (cons low (enumerate-interval (+ low 1) high))))
 
-(unique-pairs-ideal-way 5)
+(define (prime-sum? pair)
+  (prime? (+ (car pair) (cadr pair))))
 
+(define (make-pair-sum pair)
+  (list (car pair) (cadr pair) (+ (car pair) (cadr pair))))
+
+; **** Actual problem code
+
+(define (unique l)
+  (unique-iter l '() ))
+
+(define (unique-iter l snowflakes)
+   (cond ((null? l) snowflakes)
+         ((member (car l) (cdr l))
+          (unique-iter (cdr l)
+                       snowflakes))
+         (else (unique-iter (cdr l)
+                            (append snowflakes (list(car l)))))))
+
+(define (truncate-to-pair l)
+  (list (car l) (cadr l)))
+
+(define (unique-pairs n)
+  (unique (map truncate-to-pair
+               (permutations (enumerate-interval 1 n)))))
+
+;(unique-pairs 5)
+;(unique-pairs 3)
+
+(define (prime-sum-pairs n)
+  (map make-pair-sum
+       (filter prime-sum?
+               (unique-pairs n))))
+
+(prime-sum-pairs 6)
