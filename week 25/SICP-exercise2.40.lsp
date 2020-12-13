@@ -69,6 +69,9 @@
 
 ; **** Actual problem code
 
+; Note I reimplemented this problem after solving 2.41
+; `unique` makes this problem much, much simpler.
+
 (define (unique l)
   (unique-iter l '() ))
 
