@@ -72,6 +72,24 @@
 
 ; -----------------------------------------------------------------------------
 
+; Is the item in the list? 
+; ** MEMQ ** 
+(define (memq item x)
+  (cond ((null? x) false)
+        ((eq? item (car x)) x)
+        (else (memq item (cdr x)))))
+
+; If the symbol is not contained in the list (i.e., is not eq? to any item in the list), then memq returns false.
+; Otherwise, it returns the sublist of the list beginning with the first occurrence of the symbol:
+
+;For example, the value of
+(memq 'apple '(pear banana prune))
+;is false, whereas the value of
+(memq 'apple '(x (apple sauce) y apple pear))
+;is (apple pear).
+
+; -----------------------------------------------------------------------------
+
 ; My own implementation of `unique`. Not especially fast. Mostly depends on `member`.
 ; TODO: Discuss asymptotic complexity. 
 
