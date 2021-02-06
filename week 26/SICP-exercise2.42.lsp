@@ -19,9 +19,6 @@
                (filter predicate (cdr sequence))))
         (else (filter predicate (cdr sequence)))))
 
-(define (append list1 list2)
-  (cons (car list1) (append (cdr list1) list2)))
-
 (define (enumerate-interval low high)
   (if (> low high)
       nil
@@ -38,22 +35,30 @@
    (cdr position))
 
 ; Using empty list as an empty board.
-(define (empty-board)
-  nil)
+(define empty-board nil)
 
 (define (adjoin-position row col positions)
    (append positions (list (cons-position row col))))
 
-; Is there a queen in the same column? Hmm, adding one queen at a time, I don't think we have to check the column. 
-; Is there a queen in the same row?
-; Is there a queen in the left diagonal?
-; Is there a queen in the right diagonal? 
-(define (safe? k positions)
-  ; I wish I had binding.pry here.
-  positions
-  )
+(define (safe? col positions)
+   (let ((kth-queen (list-ref positions (- col 1)))
+         (other-queens (filter (lambda (q)
+                                 (not (= col (position-col q))))
+                               positions)))
+   (define (attacks? q1 q2)
+     ; Is there a queen in the same row?
+     (or (= (position-row q1) (position-row q2))
+         ; Is there a queen in the left diagonal?
+         (= (abs (- (position-row q1) (position-row q2)))
+            ; Is there a queen in the right diagonal?
+            (abs (- (position-col q1) (position-col q2))))))
 
-; How would this be refactored to use `collect`? 
+   (define (iter q board)
+     (or (null? board)
+         (and (not (attacks? q (car board)))
+              (iter q (cdr board)))))
+   (iter kth-queen other-queens)))
+
 (define (queens board-size)
   (define (queen-cols k)
     (if (= k 0)
@@ -68,4 +73,8 @@
           (queen-cols (- k 1))))))
   (queen-cols board-size))
 
+(queens 1)
+(queens 2)
+(queens 3)
 (queens 4)
+(queens 5)
