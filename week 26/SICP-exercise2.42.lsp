@@ -64,14 +64,20 @@
     (if (= k 0)
         (list empty-board)
         (filter
-         (lambda (positions) (safe? k positions))
-         (flatmap
+         (lambda (positions) (safe? k positions)) 
+         (flatmap ; Generate 
           (lambda (rest-of-queens)
             (map (lambda (new-row)
-                   (adjoin-position new-row k rest-of-queens))
+                   (adjoin-position new-row k rest-of-queens)) ; k represents the column
                  (enumerate-interval 1 board-size)))
           (queen-cols (- k 1))))))
   (queen-cols board-size))
 
-(queens 1)
+;(queens 1)
 (length (queens 8))
+
+; k = 8.
+; Builds stack up to k = 0, hits base case and then finally unwinds.
+; Only at this point do we start building `rest-of-queens`. 
+
+; Running through this with break points at line 71, 74 is really enlightening to how this works. 
