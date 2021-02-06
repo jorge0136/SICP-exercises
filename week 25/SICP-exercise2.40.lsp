@@ -69,26 +69,36 @@
 
 ; **** Actual problem code
 
-; Note I reimplemented this problem after solving 2.41
-; `unique` makes this problem much, much simpler.
+; Previously solved this problem with unique.
+; (enumerate-interval 1 n) --> permutations --> transform: truncate-to-pair --> unique --> filter: prime-sum? --> transform: make-pair-sum
 
-(define (unique l)
-  (unique-iter l '() ))
+;(define (unique l)
+;  (unique-iter l '() ))
+;
+;(define (unique-iter l snowflakes)
+;   (cond ((null? l) snowflakes)
+;         ((member (car l) (cdr l))
+;          (unique-iter (cdr l)
+;                       snowflakes))
+;         (else (unique-iter (cdr l)
+;                            (append snowflakes (list(car l)))))))
+;
+;(define (truncate-to-pair l)
+;  (list (car l) (cadr l)))
 
-(define (unique-iter l snowflakes)
-   (cond ((null? l) snowflakes)
-         ((member (car l) (cdr l))
-          (unique-iter (cdr l)
-                       snowflakes))
-         (else (unique-iter (cdr l)
-                            (append snowflakes (list(car l)))))))
+;(define (unique-pairs n)
+;  (unique (map truncate-to-pair
+;               (permutations (enumerate-interval 1 n)))))
 
-(define (truncate-to-pair l)
-  (list (car l) (cadr l)))
 
+; More efficient way to solve the problem is to do a nested loop of maps, each iterating through `i, j`.
+; flatmap --> j,i  --> filter: prime-sum? --> transform: make-pair-sum
 (define (unique-pairs n)
-  (unique (map truncate-to-pair
-               (permutations (enumerate-interval 1 n)))))
+  (flatmap (lambda (i)
+               (map (lambda (j)
+                      (cons i (list j))) ; Build the list of i, j
+                    (enumerate-interval (+ i 1) n))) ; Generate the `j`s
+           (enumerate-interval 1 n))) ; Generate the `i`s
 
 ;(unique-pairs 5)
 ;(unique-pairs 3)

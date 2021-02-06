@@ -74,7 +74,4 @@
   (queen-cols board-size))
 
 (queens 1)
-(queens 2)
-(queens 3)
-(queens 4)
-(queens 5)
+(length (queens 8))
