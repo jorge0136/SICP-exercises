@@ -36,35 +36,46 @@
                       (permutations (remove x s))))
                s)))
 
-; --------------- Implementation starts here -------------------
+; --------------- Old Implementation starts here -------------------
+; Prevoiusly I solved this problem with `unique`. I was generating all possible triples, capturing the uniques of those triples. 
 
-(define (unique l)
-  (unique-iter l '() ))
-
-; I chose an iterative method primarily as it's easier to debug.
-; What impact on efficiency would a completely recursive solution have? 
-(define (unique-iter l snowflakes)
-   (cond ((null? l) snowflakes)
-         ((member (car l) (cdr l))
-          (unique-iter (cdr l)
-                       snowflakes))
-         (else (unique-iter (cdr l)
-                            (append snowflakes (list(car l)))))))
-
-; Test cases for unique.
+;(define (unique l)
+;  (unique-iter l '() ))
+;
+;; I chose an iterative method primarily as it's easier to debug.
+;; What impact on efficiency would a completely recursive solution have? 
+;(define (unique-iter l snowflakes)
+;   (cond ((null? l) snowflakes)
+;         ((member (car l) (cdr l))
+;          (unique-iter (cdr l)
+;                       snowflakes))
+;         (else (unique-iter (cdr l)
+;                            (append snowflakes (list(car l)))))))
+;
+;; Test cases for unique.
 ;(unique (list 1 2 2 3))
 ;(unique (list 2 1 2 3))
 ;(unique (list 3 2 1 2))
 ; Note this unique implementation will maintain ordering. Ordering is important for this problem.
 
-(define (truncate-to-triplet sequence)
-  (if (pair? sequence)
-      (list (car sequence) (cadr sequence) (car (cdr (cdr sequence))))
-      nil))
+;(define (truncate-to-triplet sequence)
+;  (if (pair? sequence)
+;      (list (car sequence) (cadr sequence) (car (cdr (cdr sequence))))
+;      nil))
+;
+;(define (unique-triples n)
+;  (unique (map truncate-to-triplet
+;                    (permutations (enumerate-interval 1 n)))))
 
+; More efficient way to solve the problem is to do a nested loop of maps, each iterating through `i, j, k`. 
 (define (unique-triples n)
-  (unique (map truncate-to-triplet
-                    (permutations (enumerate-interval 1 n)))))
+  (flatmap (lambda (i) 
+               (flatmap (lambda (j)
+                          (map (lambda (k)
+                                   (cons i (cons j (list k)))) ; Build the list of i, j, k
+                               (enumerate-interval (+ j 1) n))) ; Generate the `k`s
+                    (enumerate-interval (+ i 1) n))) ; Generate the `j`s
+           (enumerate-interval 1 n))) ; Generate the `i`s
 
 (define (sum-equal-s? l s)
   (= s
