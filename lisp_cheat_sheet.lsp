@@ -91,7 +91,8 @@
 ; -----------------------------------------------------------------------------
 
 ; My own implementation of `unique`. Not especially fast. Mostly depends on `member`.
-; TODO: Discuss asymptotic complexity. 
+; TODO: Discuss asymptotic complexity.
+; TODO: Consider replacing `member` with `memq`. Is it more efficient to use memq? 
 
 (define (unique l)
   (unique-iter l '() ))
