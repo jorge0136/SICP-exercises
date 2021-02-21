@@ -151,4 +151,9 @@ Skipping 2.2.4 for the time being. It will be good to loop back to it but feel l
 Started using this lecture to [text map](http://community.schemewiki.org/?sicp-text-to-video-map) this week. Wish we had seen this earlier.
 * Problems 2.53 - 2.56
 * [Reading 2.3.1](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-4.html#%_toc_%_sec_2.3)
-* Lecture: [3B](https://www.youtube.com/watch?v=X21cKVtGvYk)
+* Lecture: [3B Part II](https://www.youtube.com/watch?v=X21cKVtGvYk)
+* Lecture: [4A](https://www.youtube.com/watch?v=amf5lTZ0UTc)
+
+## Week 28
+* Problems 2.57 - 2.59
+* Lecture: [4B](https://www.youtube.com/watch?v=X21cKVtGvYk)
