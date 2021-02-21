@@ -23,7 +23,7 @@
 ; 1. http://calculusmadeeasy.org/
 ; Pawing through this has a quote I am finding enlightening.
 ; > "This ratio dy/dx is the result of differentiating y with respect to x. Differentiating means finding the differential coefficient."
-; Can we find the "differential coefficient" when doing symbolic differnetation? What is the importance of `symbolic` here? 
+; Can we find the "differential coefficient" when doing symbolic differnetation? What is the importance of `symbolic` here?
 
 ; Mechanics:
 
@@ -37,12 +37,12 @@
 ; 2. Quotient rule
 ; 3. Chain rule
 
-; There is a good quick refernce for these things in https://0a.io/chapter1/calculus-explained.html. Search for "Here is a list of famous shortcuts for differentiation." 
+; There is a good quick refernce for these things in https://0a.io/chapter1/calculus-explained.html. Search for "Here is a list of famous shortcuts for differentiation."
 ; ###########################################################
 
 ; Comparing the rules mentioned above, they are evidently not used at all in the simple examples we are looking at.
 
-; Quoting the book, the critical passage on the nature of the differentation we are doing is the following: 
+; Quoting the book, the critical passage on the nature of the differentation we are doing is the following:
 ; > "Observe that the latter two rules are recursive in nature. That is, to obtain the derivative of a sum we first find the derivatives
 ; > of the terms and add them. Each of the terms may in turn be an expression that needs to be decomposed.
 ; > Decomposing into smaller and smaller pieces will eventually produce pieces that are either constants or variables,
@@ -63,7 +63,7 @@
 
 ;; b is the base
 ;; n is the exponent or `counter`
-;; a is the product which holds the state between iterations. 
+;; a is the product which holds the state between iterations.
 (define (fast-expt-iter b n a)
   (cond ((= n 0) a)
         ((even? n) (fast-expt-iter (square b) (/ n 2) a))
@@ -97,21 +97,21 @@
 (define (base e) (cadr e)) ; The base is the second item of the exponentiation? list
 (define (exponent e) (caddr e)) ; The exponent is the third item of the product list
 
-; Sums and products and exponents are constructed as lists. Note these implmentations are imbued with logic to simplify the final solutions. 
+; Sums and products and exponents are constructed as lists. Note these implmentations are imbued with logic to simplify the final solutions.
 (define (make-sum a1 a2)
   (cond ((=number? a1 0) a2)
         ((=number? a2 0) a1)
-        ((and (number? a1) (number? a2)) 
+        ((and (number? a1) (number? a2))
          (+ a1 a2))
         (else (list '+ a1 a2))))
 
 (define (make-product m1 m2)
-  (cond ((or (=number? m1 0) 
-             (=number? m2 0)) 
+  (cond ((or (=number? m1 0)
+             (=number? m2 0))
          0)
         ((=number? m1 1) m2)
         ((=number? m2 1) m1)
-        ((and (number? m1) (number? m2)) 
+        ((and (number? m1) (number? m2))
          (* m1 m2))
         (else (list '* m1 m2))))
 
@@ -122,7 +122,7 @@
         ((and (number? base) (number? e)) (** base e))
         (else (list '** base e))))
 
-; Test cases: 
+; Test cases:
 ; (make-exponentiation 'a 'b) --> (** a b)
 ; (make-exponentiation 'a 1) --> a
 ; (make-exponentiation 'a 0) --> 1
@@ -143,10 +143,10 @@
 
         ((product? exp)
          (make-sum
-          (make-product 
+          (make-product
            (multiplier exp)
            (deriv (multiplicand exp) var))
-          (make-product 
+          (make-product
            (deriv (multiplier exp) var)
            (multiplicand exp))))
 
@@ -157,19 +157,19 @@
             (make-product
              n
              (make-exponentiation u ; u ** n-1
-                                  (make-sum n -1))) 
+                                  (make-sum n -1)))
             (deriv u var)))) ; du/dx
-        (else (error "unknown expression 
+        (else (error "unknown expression
                       type: DERIV" exp))))
 
-; Regression tests for earlier operators: 
-;(deriv '(+ x 3) 'x) ; --> 1. 
+; Regression tests for earlier operators:
+;(deriv '(+ x 3) 'x) ; --> 1.
 ;(deriv '(* x y) 'x) ; --> y
 ;(deriv '(* (* x y) (+ x 3)) 'x) ; --> (+ (* x y) (* y (+ x 3)))
 
-; New exponentiation tests: 
+; New exponentiation tests:
 (deriv '(** x 3) 'x) ; --> (* 3 (** x 2))
 (deriv '(** x y) 'x) ; --> (* y (** x (+ y -1)))
 (deriv '(* (+ 3 y) (+ y (** x 4))) 'x) ; --> (* (+ 3 y) (* 4 (** x 3)))
 
-; Thanks to http://wiki.drewhess.com/wiki/SICP_exercise_2.56 for `let` variable naming idea and test cases. 
+; Thanks to http://wiki.drewhess.com/wiki/SICP_exercise_2.56 for `let` variable naming idea and test cases.
