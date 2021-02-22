@@ -30,6 +30,8 @@
                                set1)
                    (cdr set2))))
 
+; Right now there isn't any sort of constructor that limits duplication. It's on read, not on write. 
+
 (define a (list 2 3 2 1 3 2 2))
 (define b (list 4 5 2 1 4 8 9))
 
