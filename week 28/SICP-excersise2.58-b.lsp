@@ -31,14 +31,14 @@
 
 (define (addend s) (car s))
 
-(define (augend s) (caddr s))
+(define (augend s) (if (not (null? (cdddr s))) (cddr s) (caddr s)))
 
 (define (product? x)
   (and (pair? x) (eq? (cadr x) '*)))
 
 (define (multiplier p) (car p))
 
-(define (multiplicand p)  (caddr p) )
+(define (multiplicand p) (if (not (null? (cdddr p))) (cddr p) (caddr p)))
 
 (define (exponentiation? x)
   (and (pair? x) (eq? (car x) '**)))
@@ -78,4 +78,4 @@
         (else (error "unknown expression 
                       type: DERIV" exp))))
 
-(deriv '(x + 3 * (x + (y + 2))) 'x)
+(deriv '(x + 3 * (x + y + 2)) 'x)
