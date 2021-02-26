@@ -45,7 +45,7 @@
 ; arguments and that expressions are fully parenthesized.
 
 ; ** Sum **
-(define (sum? x) ; A product is a list whose first element is the symbol +:
+(define (sum? x) ; A product is a list whose second element is the symbol +:
   (and (pair? x) (eq? (cadr x) '+)))
 
 (define (addend s) (car s))
@@ -60,7 +60,7 @@
         (else (list a1 '+ a2)))) 
 
 ; ** Product **
-(define (product? x) ; A product is a list whose first element is the symbol *:
+(define (product? x) ; A product is a list whose second element is the symbol *:
   (and (pair? x) (eq? (cadr x) '*)))
 (define (multiplier p) (car p)) ; The multiplier is the second item of the product list
 
@@ -122,3 +122,9 @@
  ;such as (x + 3 * (x + y + 2)), which drops unnecessary parentheses and assumes that multiplication
 ; is done before addition. Can you design appropriate predicates, selectors, and constructors for
 ; this notation such that our derivative program still works?
+
+; Jon's transform approach makes sense to me.
+
+; scan the expression, looking for operators. (Use memq?) 
+; Find the operators and their operands.
+; Compute in precedence.
