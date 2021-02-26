@@ -125,6 +125,6 @@
 
 ; Jon's transform approach makes sense to me.
 
-; scan the expression, looking for operators. (Use memq?) 
+; scan the expression, looking for operators. (Use memq? vs. accumulate) 
 ; Find the operators and their operands.
 ; Compute in precedence.
