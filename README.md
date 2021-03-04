@@ -157,3 +157,6 @@ Started using this lecture to [text map](http://community.schemewiki.org/?sicp-t
 ## Week 28
 * Problems 2.57 - 2.59
 * Lecture: [4B](https://www.youtube.com/watch?v=X21cKVtGvYk)
+
+## Week 29
+* Problems: 2.60 - 2.62
