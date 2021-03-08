@@ -26,6 +26,31 @@
 
 ; -----------------------------------------------------------------------------
 
+; ** LET **
+
+;(let ((<var1> <exp1>) ... (<var_n> <exp_n>))
+;  <body>)
+
+; Example:
+(let
+  ((x 10)
+   (y 20))
+  (+ x y))
+
+; Also valid for a higher order function rather than just a value. 
+; (let <var> <bindings> <body>)
+
+; Example: 
+(define (fib n)
+  (let fib-iter ((a 1)
+                 (b 0)
+                 (count n))
+    (if (= count 0)
+        b
+        (fib-iter (+ a b) a (- count 1)))))
+
+; -----------------------------------------------------------------------------
+
 ; ** ACCUMULATE ** 
 (define (accumulate operation initial sequence)
   (if (null? sequence)
