@@ -164,3 +164,6 @@ Started using this lecture to [text map](http://community.schemewiki.org/?sicp-t
 
 ## Week 30
 * Problems: 2.63 - 2.66
+
+## Week 31
+* Problems: 2.67 - 2.72
