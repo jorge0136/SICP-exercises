@@ -11,29 +11,29 @@
 ; You should design encode-symbol so that it signals an error if the symbol is not in the tree at all. Test your procedure by encoding the
 ; result you obtained in exercise 2.67 with the sample tree and seeing whether it is the same as the original sample message.
 
-; Go through the tree in pre-order. Searching 
-; Add encoding when recursing. 
 
+; Given a Huffman tree, we can find the encoding of any symbol by starting at the root and moving down until we reach the leaf that
+; holds the symbol. Each time we move down a left branch we add a 0 to the code, and each time we move down a right branch we add a 1.
+; (We decide which branch to follow by testing to see which branch either is the leaf node for the symbol or contains the symbol in its set.)
 (define (symbols-match? symbol tree)
   (member symbol (symbols tree)))
 
-; TODO: Pick up here. 
+(define (no-match-in-entire-tree? symbol tree encoding)
+  (and (not (symbols-match? symbol tree))
+        (null? encoding)))
+
 (define (encode-symbol symbol tree)
   (define (encode-symbol-iter symbol tree encoding)
-    (cond ((not (symbols-match? symbol tree)) nil)
+    (cond ((no-match-in-entire-tree? symbol tree encoding) (error (string-append "ERROR: The following symbol is not in the huffman tree -- " (symbol->string symbol))))
+          ((not (symbols-match? symbol tree)) nil)
           ((leaf? tree) encoding)
           ((symbols-match? symbol (left-branch tree)) (encode-symbol-iter symbol
                                                                           (left-branch tree)
                                                                           (append encoding (list '0))))
           ((symbols-match? symbol (right-branch tree)) (encode-symbol-iter symbol
                                                                            (right-branch tree)
-                                                                           (append encoding (list '1))))
-           (error "ERROR: That symbol is not in the huffman tree.")))
+                                                                           (append encoding (list '1))))))
   (encode-symbol-iter symbol tree '()))
-
-; Given a Huffman tree, we can find the encoding of any symbol by starting at the root and moving down until we reach the leaf that
-; holds the symbol. Each time we move down a left branch we add a 0 to the code, and each time we move down a right branch we add a 1.
-; (We decide which branch to follow by testing to see which branch either is the leaf node for the symbol or contains the symbol in its set.)
 
 (define (element-of-set? x set)
   (cond ((null? set) false)
@@ -82,3 +82,5 @@
 (encode (list 'A) sample-tree)
 (encode (list 'B) sample-tree)
 (encode (list 'C) sample-tree)
+; Expected error thrown from this test case. 
+;(encode (list 'Z) sample-tree)
