@@ -9,8 +9,7 @@
 
 ; Encode-symbol is a procedure, which you must write, that returns the list of bits that encodes a given symbol according to a given tree.
 ; You should design encode-symbol so that it signals an error if the symbol is not in the tree at all. Test your procedure by encoding the
-; result you obtained in exercise 2.67 with the sample tree and seeing whether it is the same as the original sample message.
-
+; result you obtained in exercise 2.67 with the sample tree and seeing whether it is the same as the original sample message.\
 
 ; Given a Huffman tree, we can find the encoding of any symbol by starting at the root and moving down until we reach the leaf that
 ; holds the symbol. Each time we move down a left branch we add a 0 to the code, and each time we move down a right branch we add a 1.
@@ -65,7 +64,6 @@
       (weight-leaf tree)
       (cadddr tree)))
 
-(define sample-message '(0 1 1 0 0 1 0 1 0 1 1 1 0))
 (define sample-tree
   (make-code-tree (make-leaf 'A 4)
                   (make-code-tree
@@ -84,3 +82,9 @@
 (encode (list 'C) sample-tree)
 ; Expected error thrown from this test case. 
 ;(encode (list 'Z) sample-tree)
+
+(define 2.67-message (list 'A 'D 'A 'B 'B 'C 'A))
+(encode 2.67-message sample-tree)
+
+(define 2.67-encoding '(0 1 1 0 0 1 0 1 0 1 1 1 0))
+2.67-encoding
