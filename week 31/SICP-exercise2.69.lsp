@@ -89,6 +89,7 @@
 ; The algorithm does not always specify a unique tree, because there may not be unique smallest-weight nodes at each step. Also, the choice
 ; of the order in which the two nodes are merged (i.e., which will be the right branch and which will be the left branch) is arbitrary.
 
+; TODO Figure out how to return only leaves. The other roots start to stack up here. 
 (define (last-two-leaves items)
   (define (last-two-leaves-iter items previous)
     (if (null? (cdr items))
@@ -96,26 +97,27 @@
       (last-two-leaves-iter (cdr items) (car items))))
   (last-two-leaves-iter items '()))
 
-(define (merge-symbols last-two-leaves)
-  (adjoin-set (symbols (right-branch (last-two-leaves last-two-leaves)))
-              (symbols (left-branch (last-two-leaves last-two-leaves)))))
+; How to "remove" the node. We could do this by looking for duplication vs. literally dropping the last two.
+(define (remove-last l)
+    (reverse (cdr (reverse l))))
 
-(define (merge-weights last-two-leaves)
-  (merged-weights (+ (weight (right-branch (last-two-leaves last-two-leaves)))
-                     (weight (left-branch (last-two-leaves last-two-leaves))))))
+(define (remove-last-two leaf-set)
+  (remove-last (remove-last leaf-set)))
 
+; This implementation is entirely dependent on recieving ordered input.
+; The prompt mentions that the input is ordered but I don't see how that is a guarantee. 
 (define (successive-merge leaf-set)
+  (if (not (leaf? (car leaf-set))) leaf-set)
   ; Merge the two leaves as the new root, pass the leaves through as children.
-  (let ((minimum-weight-leaves) (last-two-leaves leaf-set))
-        (merged-symbols (merge-symbols minimum-weight-leaves))
-        (merged-weights (merge-weights minimum-weight-leaves))
-  (make-code-tree (make-leaf merged-symbols merged-weights)
-                  (make-code-tree (left-branch (last-two-leaves leaf-set)) (left-branch (last-two-leaves leaf-set))))))
-  
-; Combine the two lowest leaves as the root of a new tree with the branches being the two leafs of the lowest weight.
+  (successive-merge (list (remove-last-two leaf-set)
+                    (make-code-tree (left-branch (last-two-leaves leaf-set))
+                                    (right-branch (last-two-leaves leaf-set))))))
 
 ; Does our ordered set implementation just a convention of when we call it? If I add `(list 'E 11)`, it doesn't order it....
 (make-leaf-set (list (list 'A 4) (list 'B 2) (list 'D 1) (list 'C 1)))
 ; --> ((leaf A 4) (leaf B 2) (leaf D 1) (leaf C 1)) This will be our input to the `successive-merge` function.
 
-(successive-merge (make-leaf-set (list (list 'A 4) (list 'B 2) (list 'D 1) (list 'C 1))))
+(define sample-leaf-set (make-leaf-set (list (list 'A 4) (list 'B 2) (list 'D 1) (list 'C 1))))
+
+;(last-two-leaves sample-leaf-set)
+(successive-merge sample-leaf-set)
