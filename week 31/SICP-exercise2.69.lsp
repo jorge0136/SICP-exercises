@@ -12,6 +12,12 @@
 ; then you are almost certainly doing something wrong. You can take significant advantage of the fact that we are using
 ; an ordered set representation.)
 
+(define (accumulate operation initial sequence)
+  (if (null? sequence)
+      initial
+      (operation (car sequence)
+                 (accumulate operation initial (cdr sequence)))))
+
 (define (symbol-leaf x) (cadr x))
 (define (weight-leaf x) (caddr x))
 
@@ -90,10 +96,23 @@
       (last-two-leaves-iter (cdr items) (car items))))
   (last-two-leaves-iter items '()))
 
+(define (merge-symbols last-two-leaves)
+  (adjoin-set (symbols (right-branch (last-two-leaves last-two-leaves)))
+              (symbols (left-branch (last-two-leaves last-two-leaves)))))
+
+(define (merge-weights last-two-leaves)
+  (merged-weights (+ (weight (right-branch (last-two-leaves last-two-leaves)))
+                     (weight (left-branch (last-two-leaves last-two-leaves))))))
+
 (define (successive-merge leaf-set)
-  (last-two-leaves leaf-set))
+  ; Merge the two leaves as the new root, pass the leaves through as children.
+  (let ((minimum-weight-leaves) (last-two-leaves leaf-set))
+        (merged-symbols (merge-symbols minimum-weight-leaves))
+        (merged-weights (merge-weights minimum-weight-leaves))
+  (make-code-tree (make-leaf merged-symbols merged-weights)
+                  (make-code-tree (left-branch (last-two-leaves leaf-set)) (left-branch (last-two-leaves leaf-set))))))
+  
 ; Combine the two lowest leaves as the root of a new tree with the branches being the two leafs of the lowest weight.
-; TODO: Pick up here. 
 
 ; Does our ordered set implementation just a convention of when we call it? If I add `(list 'E 11)`, it doesn't order it....
 (make-leaf-set (list (list 'A 4) (list 'B 2) (list 'D 1) (list 'C 1)))
