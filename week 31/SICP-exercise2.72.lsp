@@ -11,9 +11,8 @@
 ; holds the symbol. Each time we move down a left branch we add a 0 to the code, and each time we move down a right branch we add a 1.
 ; (We decide which branch to follow by testing to see which branch either is the leaf node for the symbol or contains the symbol in its set.)
 
-
 ;(define (symbols-match? symbol tree)
-;  (member symbol (symbols tree)))
+;  (element-of-set? symbol (symbols tree)))
 
 ;(define (no-match-in-entire-tree? symbol tree encoding)
 ;  (and (not (symbols-match? symbol tree))
@@ -33,14 +32,9 @@
 ;  (encode-symbol-iter symbol tree '()))
 
 
-; Woof this problem is tough. I am still struggling with my asymtoptic complexity.
-; I am also not certain of the complexity of `member`. I suppose that means that I should perhaps use a different, known complexity algorthim.
-; I want to talk this one over. http://community.schemewiki.org/?sicp-ex-2.72
+; A) We search for symbol matching: (element-of-set? of the symbols each node): O(n) time
+; B) We do that on each branching node, AKA halving AKA log_n branches
+; General Case: O(n * log_n)
 
-; Excerpt from someone else's answer:
-; For the encode-symbol procedure in 2.68:
-;
-; Search the symbol list at each node: O(n) time
-; Then take log_n branches
-; Total: O(n * log_n) (best case) 
-; 
+; Best case scenario the depth of the tree is 1 (n * 1) = O(n). n rather than O(1)
+; Worse case scenario is like 2.71, where in that problem we already discussed the depth of the tree being n - 1. (n * n -1 ) = O(n ^ 2)

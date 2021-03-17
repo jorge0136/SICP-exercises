@@ -12,7 +12,7 @@
 ; result you obtained in exercise 2.67 with the sample tree and seeing whether it is the same as the original sample message.\
 
 (define (symbols-match? symbol tree)
-  (member symbol (symbols tree)))
+  (element-of-set? symbol (symbols tree)))
 
 (define (no-match-in-entire-tree? symbol tree encoding)
   (and (not (symbols-match? symbol tree))
