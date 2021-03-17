@@ -120,4 +120,4 @@ huffman-tree
 
 ; For fixed-length encoding, interestingly we only need 3 bits per symbol. I find this unintuitive, as many of the symobls are actually 3 characters long.
 ; This yields 108 bits if we used fixed length encoding. 
-(* 3 (length sha-na-na)) 
+(* 3 (length sha-na-na))
