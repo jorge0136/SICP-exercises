@@ -11,9 +11,6 @@
 ; You should design encode-symbol so that it signals an error if the symbol is not in the tree at all. Test your procedure by encoding the
 ; result you obtained in exercise 2.67 with the sample tree and seeing whether it is the same as the original sample message.\
 
-; Given a Huffman tree, we can find the encoding of any symbol by starting at the root and moving down until we reach the leaf that
-; holds the symbol. Each time we move down a left branch we add a 0 to the code, and each time we move down a right branch we add a 1.
-; (We decide which branch to follow by testing to see which branch either is the leaf node for the symbol or contains the symbol in its set.)
 (define (symbols-match? symbol tree)
   (member symbol (symbols tree)))
 
@@ -21,6 +18,11 @@
   (and (not (symbols-match? symbol tree))
         (null? encoding)))
 
+; Given a Huffman tree, we can find the encoding of any symbol by starting at the root and moving down until we reach the leaf that
+; holds the symbol. Each time we move down a left branch we add a 0 to the code, and each time we move down a right branch we add a 1.
+; (We decide which branch to follow by testing to see which branch either is the leaf node for the symbol or contains the symbol in its set.)
+
+; I can't help but feel that I have more cases than are needed. Can I simplify this procedure? 
 (define (encode-symbol symbol tree)
   (define (encode-symbol-iter symbol tree encoding)
     (cond ((no-match-in-entire-tree? symbol tree encoding) (error (string-append "ERROR: The following symbol is not in the huffman tree -- " (symbol->string symbol))))
