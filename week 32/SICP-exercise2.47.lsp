@@ -8,14 +8,7 @@
 ; For each constructor supply the appropriate selectors to produce an implementation for frames.
 
 ; selectors needed are origin-frame, edge1-frame, and edge2-frame
-(define (make-vect x y)
-  (cons x y))
-(define (xcor-vect point) (car point))
-(define (ycor-vect point) (cdr point))
-
-(define (add-vect vect1 vect2)
-  (make-vect (+ (xcor-vect vect1) (xcor-vect vect2))
-              (+ (ycor-vect vect1) (ycor-vect vect2))))
+(define (make-vect x y) (cons x y))
 
 (define example-origin (make-vect .25 .25))
 (define example-edge1 (make-vect .25 .5))
