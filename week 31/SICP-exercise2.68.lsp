@@ -14,10 +14,6 @@
 (define (symbols-match? symbol tree)
   (element-of-set? symbol (symbols tree)))
 
-(define (no-match-in-entire-tree? symbol tree encoding)
-  (and (not (symbols-match? symbol tree))
-        (null? encoding)))
-
 ; Given a Huffman tree, we can find the encoding of any symbol by starting at the root and moving down until we reach the leaf that
 ; holds the symbol. Each time we move down a left branch we add a 0 to the code, and each time we move down a right branch we add a 1.
 ; (We decide which branch to follow by testing to see which branch either is the leaf node for the symbol or contains the symbol in its set.)
@@ -25,15 +21,14 @@
 ; I can't help but feel that I have more cases than are needed. Can I simplify this procedure? 
 (define (encode-symbol symbol tree)
   (define (encode-symbol-iter symbol tree encoding)
-    (cond ((no-match-in-entire-tree? symbol tree encoding) (error (string-append "ERROR: The following symbol is not in the huffman tree -- " (symbol->string symbol))))
-          ((not (symbols-match? symbol tree)) nil)
-          ((leaf? tree) encoding)
+    (cond ((leaf? tree) encoding)
           ((symbols-match? symbol (left-branch tree)) (encode-symbol-iter symbol
                                                                           (left-branch tree)
                                                                           (append encoding (list '0))))
           ((symbols-match? symbol (right-branch tree)) (encode-symbol-iter symbol
                                                                            (right-branch tree)
-                                                                           (append encoding (list '1))))))
+                                                                           (append encoding (list '1))))
+          (else (error "ERROR: The following symbol is not in the huffman tree -- " symbol ))))
   (encode-symbol-iter symbol tree '()))
 
 (define (element-of-set? x set)

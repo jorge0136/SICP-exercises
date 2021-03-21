@@ -36,5 +36,5 @@
 ; B) We do that on each branching node, AKA halving AKA log_n branches
 ; General Case: O(n * log_n)
 
-; Best case scenario the depth of the tree is 1 (n * 1) = O(n). n rather than O(1)
+; Best case scenario the depth of the tree is 1 (n * 1) = O(n). After we discussed this, if we order the `symbols` in the huffman tree by order of frequency this is O(1). 
 ; Worse case scenario is like 2.71, where in that problem we already discussed the depth of the tree being n - 1. (n * n -1 ) = O(n ^ 2)
