@@ -167,3 +167,8 @@ Started using this lecture to [text map](http://community.schemewiki.org/?sicp-t
 
 ## Week 31
 * Problems: 2.67 - 2.72
+
+## Week 32
+We are going to go back and do the picture language that we skipped over before.
+* Problems 2.44 - 2.51
+In retrospect these folders should be by section rather than by week of material.
