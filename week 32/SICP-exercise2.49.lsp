@@ -41,5 +41,22 @@
                               (make-segment mid-bottom mid-left))))
 (paint c)
 
-; d.  The wave painter.
-
+; d.  The wave painter. verbatim taken from https://github.com/trptcolin/sicp-study/blob/master/scheme/week-7/exercise-2.49.ss
+(define d (segments->painter (list (make-segment (make-vect 0 0.6) (make-vect 0.2 0.4))
+                            (make-segment (make-vect 0.2 0.4) (make-vect 0.3 0.55))
+                            (make-segment (make-vect 0.3 0.55) (make-vect 0.35 0.45))
+                            (make-segment (make-vect 0.35 0.45) (make-vect 0.25 0))
+                            (make-segment (make-vect 0.4 0) (make-vect 0.5 0.3))
+                            (make-segment (make-vect 0.5 0.3) (make-vect 0.6 0))
+                            (make-segment (make-vect 0.75 0) (make-vect 0.6 0.45))
+                            (make-segment (make-vect 0.6 0.45) (make-vect 0.99 0.15))
+                            (make-segment (make-vect 0 0.8) (make-vect 0.2 0.55))
+                            (make-segment (make-vect 0.2 0.55) (make-vect 0.3 0.6))
+                            (make-segment (make-vect 0.3 0.6) (make-vect 0.4 0.6))
+                            (make-segment (make-vect 0.4 0.6) (make-vect 0.35 0.8))
+                            (make-segment (make-vect 0.35 0.8) (make-vect 0.4 0.99))
+                            (make-segment (make-vect 0.6 0.99) (make-vect 0.65 0.8))
+                            (make-segment (make-vect 0.65 0.8) (make-vect 0.6 0.6))
+                            (make-segment (make-vect 0.6 0.6) (make-vect 0.8 0.6))
+                            (make-segment (make-vect 0.8 0.6) (make-vect 0.99 0.35)))))
+(paint d)
