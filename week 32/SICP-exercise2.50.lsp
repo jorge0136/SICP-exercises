@@ -13,13 +13,13 @@
                      (vector-sub (m corner1) new-origin)
                      (vector-sub (m corner2) new-origin)))))))
 
-; 1,0 - 1, 1
+; 0,1 - 1, 1
 ;  |     |
-; 0,0 - 0, 1
+; 0,0 - 1, 0
 (define bottom-left (make-vect 0 0))
-(define bottom-right (make-vect 0 1))
+(define top-left (make-vect 0 1))
 (define top-right (make-vect 1 1))
-(define top-left (make-vect 1 0))
+(define bottom-right (make-vect 1 0))
 
 ; Normal
 ; edge 2
@@ -30,15 +30,15 @@
 (define (identity-transform painter)
   (transform-painter painter
                      bottom-left    ; new origin
-                     top-left       ; new end of edge1
-                     bottom-right)) ; new end of edge2
+                     bottom-right       ; new end of edge1
+                     top-left)) ; new end of edge2
 ; Vertical
 ;          edge 1
 ;            |
 ; edge 2 - origin 
 (define (flip-vert painter)
   (transform-painter painter
-                     bottom-right  ; new origin
+                     top-left  ; new origin
                      top-right     ; new end of edge1
                      bottom-left)) ; new end of edge2
 ; Horizontal
@@ -47,13 +47,13 @@
 ; edge 1    
 (define (flip-horiz painter)
   (transform-painter painter
-                     top-left    ; new origin
+                     bottom-right    ; new origin
                      bottom-left ; new end of edge1
                      top-right)) ; new end of edge2
 
 (define (rotate90 painter)
   (transform-painter painter
-                     top-left
+                     bottom-right
                      top-right
                      bottom-left))
 
