@@ -30,26 +30,26 @@
 (define (identity-transform painter)
   (transform-painter painter
                      bottom-left    ; new origin
-                     bottom-right       ; new end of edge1
-                     top-left)) ; new end of edge2
+                     bottom-right   ; new end of edge1
+                     top-left))     ; new end of edge2
 ; Vertical
-;          edge 1
-;            |
-; edge 2 - origin 
+; origin - edge 1
+;   |  
+; edge 2  
 (define (flip-vert painter)
   (transform-painter painter
-                     top-left  ; new origin
+                     top-left      ; new origin
                      top-right     ; new end of edge1
                      bottom-left)) ; new end of edge2
 ; Horizontal
-; origin - edge 2
-;   |         
-; edge 1    
+;           edge 2
+;             |   
+; edge 1  - origin
 (define (flip-horiz painter)
   (transform-painter painter
-                     bottom-right    ; new origin
-                     bottom-left ; new end of edge1
-                     top-right)) ; new end of edge2
+                     bottom-right ; new origin
+                     bottom-left  ; new end of edge1
+                     top-right))  ; new end of edge2
 
 (define (rotate90 painter)
   (transform-painter painter
