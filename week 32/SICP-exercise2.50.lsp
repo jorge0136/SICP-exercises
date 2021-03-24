@@ -57,7 +57,8 @@
                      top-right
                      bottom-left))
 
-; Breaking out implementation from exercuse 1.45
+; Breaking out implementation from exercise 1.45
+; Combinators for the win! 
 (define (compose f g)
   (lambda (x)
     (f (g x))))
