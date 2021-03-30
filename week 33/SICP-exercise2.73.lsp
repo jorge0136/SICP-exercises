@@ -88,17 +88,14 @@
 ; install them in the table used by the program above.
 
 (define (install-deriv-package)
-  ;; internal procedures
   (define (=number? exp num) ; Checks whether an expression is equal to a given number
     (and (number? exp) (= exp num)))
-  
   (define (make-sum a1 a2)
     (cond ((=number? a1 0) a2)
           ((=number? a2 0) a1)
           ((and (number? a1) (number? a2))
            (+ a1 a2))
           (else (list '+ a1 a2))))
-
   (define (make-product m1 m2)
     (cond ((or (=number? m1 0)
                (=number? m2 0))
@@ -120,25 +117,22 @@
 ; c.  Choose any additional differentiation rule that you like, such as the one for exponents
 ; (exercise 2.56), and install it in this data-directed system.
 (define (add-exponentiation-to-deriv-package)
-  ;; internal procedures
-
   (define (=number? exp num) ; Checks whether an expression is equal to a given number
     (and (number? exp) (= exp num)))
-
   (define (** b n)
     (fast-expt-iter b n 1))
-
   (define (fast-expt-iter b n a)
     (cond ((= n 0) a)
           ((even? n) (fast-expt-iter (square b) (/ n 2) a))
           (else (fast-expt-iter b (- n 1) (* b a)))))
-  
   (define (make-exponentiation base e)
     (cond ((=number? e 0) 1) ; anything raised to the power 0 is 1.
           ((=number? e 1) base) ; anything raised to the power 1 is the thing itself
           ((=number? base 1) 1)
           ((and (number? base) (number? e)) (** base e))
           (else (list '** base e))))
+
+  ; interface to the rest of the system
   (put 'deriv '** make-exponentiation)
   'done)
 
