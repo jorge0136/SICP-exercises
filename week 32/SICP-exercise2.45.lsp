@@ -1,4 +1,5 @@
 #lang sicp
+(#%require sicp-pict)
 ; Exercise 2.45.  Right-split and up-split can be expressed as instances of a general splitting
 ; operation. Define a procedure split with the property that evaluating
 
@@ -16,3 +17,8 @@
         (let ((smaller ((split painter-transform1 painter-transform2) painter (- n 1))))
              (painter-transform1 painter (painter-transform2 smaller smaller))))))
 
+(define right-split (split beside below))
+(define up-split (split below beside))
+
+(paint (right-split einstein 3))
+(paint (up-split einstein 3))
