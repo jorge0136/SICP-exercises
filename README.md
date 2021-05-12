@@ -177,3 +177,7 @@ In retrospect these folders should be by section rather than by week of material
 * Problems 2.73 - 2.76
 * Read [2.4](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-17.html#%_sec_2.4)
 * [Lecture 4b](https://www.youtube.com/watch?v=h6Z7vx9iUB8) if not already watched.
+
+# Week 34
+
+* Problems 2.77 - 2.80
